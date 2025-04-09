@@ -1,0 +1,2736 @@
+{
+    "code": 200,
+    "status": "OK",
+    "data": [
+        {
+            "timings": {
+                "Fajr": "04:21 (EET)",
+                "Sunrise": "05:44 (EET)",
+                "Dhuhr": "11:59 (EET)",
+                "Asr": "15:30 (EET)",
+                "Sunset": "18:14 (EET)",
+                "Maghrib": "18:14 (EET)",
+                "Isha": "19:44 (EET)",
+                "Imsak": "04:11 (EET)",
+                "Midnight": "23:59 (EET)",
+                "Firstthird": "22:04 (EET)",
+                "Lastthird": "01:54 (EET)"
+            },
+            "date": {
+                "readable": "01 Apr 2025",
+                "timestamp": "1743490861",
+                "gregorian": {
+                    "date": "01-04-2025",
+                    "format": "DD-MM-YYYY",
+                    "day": "01",
+                    "weekday": {
+                        "en": "Tuesday"
+                    },
+                    "month": {
+                        "number": 4,
+                        "en": "April"
+                    },
+                    "year": "2025",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    },
+                    "lunarSighting": false
+                },
+                "hijri": {
+                    "date": "03-10-1446",
+                    "format": "DD-MM-YYYY",
+                    "day": "3",
+                    "weekday": {
+                        "en": "Al Thalaata",
+                        "ar": "الثلاثاء"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال",
+                        "days": 30
+                    },
+                    "year": "1446",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [],
+                    "adjustedHolidays": [],
+                    "method": "HJCoSA"
+                }
+            },
+            "meta": {
+                "latitude": 30.0626,
+                "longitude": 31.2497,
+                "timezone": "Africa/Cairo",
+                "method": {
+                    "id": 4,
+                    "name": "Umm Al-Qura University, Makkah",
+                    "params": {
+                        "Fajr": 18.5,
+                        "Isha": "90 min"
+                    },
+                    "location": {
+                        "latitude": 21.3890824,
+                        "longitude": 39.8579118
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "04:20 (EET)",
+                "Sunrise": "05:43 (EET)",
+                "Dhuhr": "11:59 (EET)",
+                "Asr": "15:30 (EET)",
+                "Sunset": "18:14 (EET)",
+                "Maghrib": "18:14 (EET)",
+                "Isha": "19:44 (EET)",
+                "Imsak": "04:10 (EET)",
+                "Midnight": "23:59 (EET)",
+                "Firstthird": "22:04 (EET)",
+                "Lastthird": "01:54 (EET)"
+            },
+            "date": {
+                "readable": "02 Apr 2025",
+                "timestamp": "1743577261",
+                "gregorian": {
+                    "date": "02-04-2025",
+                    "format": "DD-MM-YYYY",
+                    "day": "02",
+                    "weekday": {
+                        "en": "Wednesday"
+                    },
+                    "month": {
+                        "number": 4,
+                        "en": "April"
+                    },
+                    "year": "2025",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    },
+                    "lunarSighting": false
+                },
+                "hijri": {
+                    "date": "04-10-1446",
+                    "format": "DD-MM-YYYY",
+                    "day": "4",
+                    "weekday": {
+                        "en": "Al Arba'a",
+                        "ar": "الاربعاء"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال",
+                        "days": 30
+                    },
+                    "year": "1446",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [],
+                    "adjustedHolidays": [],
+                    "method": "HJCoSA"
+                }
+            },
+            "meta": {
+                "latitude": 30.0626,
+                "longitude": 31.2497,
+                "timezone": "Africa/Cairo",
+                "method": {
+                    "id": 4,
+                    "name": "Umm Al-Qura University, Makkah",
+                    "params": {
+                        "Fajr": 18.5,
+                        "Isha": "90 min"
+                    },
+                    "location": {
+                        "latitude": 21.3890824,
+                        "longitude": 39.8579118
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "04:18 (EET)",
+                "Sunrise": "05:42 (EET)",
+                "Dhuhr": "11:58 (EET)",
+                "Asr": "15:30 (EET)",
+                "Sunset": "18:15 (EET)",
+                "Maghrib": "18:15 (EET)",
+                "Isha": "19:45 (EET)",
+                "Imsak": "04:08 (EET)",
+                "Midnight": "23:58 (EET)",
+                "Firstthird": "22:04 (EET)",
+                "Lastthird": "01:53 (EET)"
+            },
+            "date": {
+                "readable": "03 Apr 2025",
+                "timestamp": "1743663661",
+                "gregorian": {
+                    "date": "03-04-2025",
+                    "format": "DD-MM-YYYY",
+                    "day": "03",
+                    "weekday": {
+                        "en": "Thursday"
+                    },
+                    "month": {
+                        "number": 4,
+                        "en": "April"
+                    },
+                    "year": "2025",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    },
+                    "lunarSighting": false
+                },
+                "hijri": {
+                    "date": "05-10-1446",
+                    "format": "DD-MM-YYYY",
+                    "day": "5",
+                    "weekday": {
+                        "en": "Al Khamees",
+                        "ar": "الخميس"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال",
+                        "days": 30
+                    },
+                    "year": "1446",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [],
+                    "adjustedHolidays": [],
+                    "method": "HJCoSA"
+                }
+            },
+            "meta": {
+                "latitude": 30.0626,
+                "longitude": 31.2497,
+                "timezone": "Africa/Cairo",
+                "method": {
+                    "id": 4,
+                    "name": "Umm Al-Qura University, Makkah",
+                    "params": {
+                        "Fajr": 18.5,
+                        "Isha": "90 min"
+                    },
+                    "location": {
+                        "latitude": 21.3890824,
+                        "longitude": 39.8579118
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "04:17 (EET)",
+                "Sunrise": "05:41 (EET)",
+                "Dhuhr": "11:58 (EET)",
+                "Asr": "15:30 (EET)",
+                "Sunset": "18:16 (EET)",
+                "Maghrib": "18:16 (EET)",
+                "Isha": "19:46 (EET)",
+                "Imsak": "04:07 (EET)",
+                "Midnight": "23:58 (EET)",
+                "Firstthird": "22:04 (EET)",
+                "Lastthird": "01:52 (EET)"
+            },
+            "date": {
+                "readable": "04 Apr 2025",
+                "timestamp": "1743750061",
+                "gregorian": {
+                    "date": "04-04-2025",
+                    "format": "DD-MM-YYYY",
+                    "day": "04",
+                    "weekday": {
+                        "en": "Friday"
+                    },
+                    "month": {
+                        "number": 4,
+                        "en": "April"
+                    },
+                    "year": "2025",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    },
+                    "lunarSighting": false
+                },
+                "hijri": {
+                    "date": "06-10-1446",
+                    "format": "DD-MM-YYYY",
+                    "day": "6",
+                    "weekday": {
+                        "en": "Al Juma'a",
+                        "ar": "الجمعة"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال",
+                        "days": 30
+                    },
+                    "year": "1446",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [],
+                    "adjustedHolidays": [],
+                    "method": "HJCoSA"
+                }
+            },
+            "meta": {
+                "latitude": 30.0626,
+                "longitude": 31.2497,
+                "timezone": "Africa/Cairo",
+                "method": {
+                    "id": 4,
+                    "name": "Umm Al-Qura University, Makkah",
+                    "params": {
+                        "Fajr": 18.5,
+                        "Isha": "90 min"
+                    },
+                    "location": {
+                        "latitude": 21.3890824,
+                        "longitude": 39.8579118
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "04:16 (EET)",
+                "Sunrise": "05:40 (EET)",
+                "Dhuhr": "11:58 (EET)",
+                "Asr": "15:30 (EET)",
+                "Sunset": "18:16 (EET)",
+                "Maghrib": "18:16 (EET)",
+                "Isha": "19:46 (EET)",
+                "Imsak": "04:06 (EET)",
+                "Midnight": "23:58 (EET)",
+                "Firstthird": "22:04 (EET)",
+                "Lastthird": "01:52 (EET)"
+            },
+            "date": {
+                "readable": "05 Apr 2025",
+                "timestamp": "1743836461",
+                "gregorian": {
+                    "date": "05-04-2025",
+                    "format": "DD-MM-YYYY",
+                    "day": "05",
+                    "weekday": {
+                        "en": "Saturday"
+                    },
+                    "month": {
+                        "number": 4,
+                        "en": "April"
+                    },
+                    "year": "2025",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    },
+                    "lunarSighting": false
+                },
+                "hijri": {
+                    "date": "07-10-1446",
+                    "format": "DD-MM-YYYY",
+                    "day": "7",
+                    "weekday": {
+                        "en": "Al Sabt",
+                        "ar": "السبت"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال",
+                        "days": 30
+                    },
+                    "year": "1446",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [],
+                    "adjustedHolidays": [],
+                    "method": "HJCoSA"
+                }
+            },
+            "meta": {
+                "latitude": 30.0626,
+                "longitude": 31.2497,
+                "timezone": "Africa/Cairo",
+                "method": {
+                    "id": 4,
+                    "name": "Umm Al-Qura University, Makkah",
+                    "params": {
+                        "Fajr": 18.5,
+                        "Isha": "90 min"
+                    },
+                    "location": {
+                        "latitude": 21.3890824,
+                        "longitude": 39.8579118
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "04:14 (EET)",
+                "Sunrise": "05:38 (EET)",
+                "Dhuhr": "11:57 (EET)",
+                "Asr": "15:30 (EET)",
+                "Sunset": "18:17 (EET)",
+                "Maghrib": "18:17 (EET)",
+                "Isha": "19:47 (EET)",
+                "Imsak": "04:04 (EET)",
+                "Midnight": "23:58 (EET)",
+                "Firstthird": "22:04 (EET)",
+                "Lastthird": "01:51 (EET)"
+            },
+            "date": {
+                "readable": "06 Apr 2025",
+                "timestamp": "1743922861",
+                "gregorian": {
+                    "date": "06-04-2025",
+                    "format": "DD-MM-YYYY",
+                    "day": "06",
+                    "weekday": {
+                        "en": "Sunday"
+                    },
+                    "month": {
+                        "number": 4,
+                        "en": "April"
+                    },
+                    "year": "2025",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    },
+                    "lunarSighting": false
+                },
+                "hijri": {
+                    "date": "08-10-1446",
+                    "format": "DD-MM-YYYY",
+                    "day": "8",
+                    "weekday": {
+                        "en": "Al Ahad",
+                        "ar": "الاحد"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال",
+                        "days": 30
+                    },
+                    "year": "1446",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [],
+                    "adjustedHolidays": [],
+                    "method": "HJCoSA"
+                }
+            },
+            "meta": {
+                "latitude": 30.0626,
+                "longitude": 31.2497,
+                "timezone": "Africa/Cairo",
+                "method": {
+                    "id": 4,
+                    "name": "Umm Al-Qura University, Makkah",
+                    "params": {
+                        "Fajr": 18.5,
+                        "Isha": "90 min"
+                    },
+                    "location": {
+                        "latitude": 21.3890824,
+                        "longitude": 39.8579118
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "04:13 (EET)",
+                "Sunrise": "05:37 (EET)",
+                "Dhuhr": "11:57 (EET)",
+                "Asr": "15:30 (EET)",
+                "Sunset": "18:17 (EET)",
+                "Maghrib": "18:17 (EET)",
+                "Isha": "19:47 (EET)",
+                "Imsak": "04:03 (EET)",
+                "Midnight": "23:57 (EET)",
+                "Firstthird": "22:04 (EET)",
+                "Lastthird": "01:51 (EET)"
+            },
+            "date": {
+                "readable": "07 Apr 2025",
+                "timestamp": "1744009261",
+                "gregorian": {
+                    "date": "07-04-2025",
+                    "format": "DD-MM-YYYY",
+                    "day": "07",
+                    "weekday": {
+                        "en": "Monday"
+                    },
+                    "month": {
+                        "number": 4,
+                        "en": "April"
+                    },
+                    "year": "2025",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    },
+                    "lunarSighting": false
+                },
+                "hijri": {
+                    "date": "09-10-1446",
+                    "format": "DD-MM-YYYY",
+                    "day": "9",
+                    "weekday": {
+                        "en": "Al Athnayn",
+                        "ar": "الاثنين"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال",
+                        "days": 30
+                    },
+                    "year": "1446",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [],
+                    "adjustedHolidays": [],
+                    "method": "HJCoSA"
+                }
+            },
+            "meta": {
+                "latitude": 30.0626,
+                "longitude": 31.2497,
+                "timezone": "Africa/Cairo",
+                "method": {
+                    "id": 4,
+                    "name": "Umm Al-Qura University, Makkah",
+                    "params": {
+                        "Fajr": 18.5,
+                        "Isha": "90 min"
+                    },
+                    "location": {
+                        "latitude": 21.3890824,
+                        "longitude": 39.8579118
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "04:12 (EET)",
+                "Sunrise": "05:36 (EET)",
+                "Dhuhr": "11:57 (EET)",
+                "Asr": "15:30 (EET)",
+                "Sunset": "18:18 (EET)",
+                "Maghrib": "18:18 (EET)",
+                "Isha": "19:48 (EET)",
+                "Imsak": "04:02 (EET)",
+                "Midnight": "23:57 (EET)",
+                "Firstthird": "22:04 (EET)",
+                "Lastthird": "01:50 (EET)"
+            },
+            "date": {
+                "readable": "08 Apr 2025",
+                "timestamp": "1744095661",
+                "gregorian": {
+                    "date": "08-04-2025",
+                    "format": "DD-MM-YYYY",
+                    "day": "08",
+                    "weekday": {
+                        "en": "Tuesday"
+                    },
+                    "month": {
+                        "number": 4,
+                        "en": "April"
+                    },
+                    "year": "2025",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    },
+                    "lunarSighting": false
+                },
+                "hijri": {
+                    "date": "10-10-1446",
+                    "format": "DD-MM-YYYY",
+                    "day": "10",
+                    "weekday": {
+                        "en": "Al Thalaata",
+                        "ar": "الثلاثاء"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال",
+                        "days": 30
+                    },
+                    "year": "1446",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [],
+                    "adjustedHolidays": [],
+                    "method": "HJCoSA"
+                }
+            },
+            "meta": {
+                "latitude": 30.0626,
+                "longitude": 31.2497,
+                "timezone": "Africa/Cairo",
+                "method": {
+                    "id": 4,
+                    "name": "Umm Al-Qura University, Makkah",
+                    "params": {
+                        "Fajr": 18.5,
+                        "Isha": "90 min"
+                    },
+                    "location": {
+                        "latitude": 21.3890824,
+                        "longitude": 39.8579118
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "04:10 (EET)",
+                "Sunrise": "05:35 (EET)",
+                "Dhuhr": "11:57 (EET)",
+                "Asr": "15:30 (EET)",
+                "Sunset": "18:19 (EET)",
+                "Maghrib": "18:19 (EET)",
+                "Isha": "19:49 (EET)",
+                "Imsak": "04:00 (EET)",
+                "Midnight": "23:57 (EET)",
+                "Firstthird": "22:04 (EET)",
+                "Lastthird": "01:49 (EET)"
+            },
+            "date": {
+                "readable": "09 Apr 2025",
+                "timestamp": "1744182061",
+                "gregorian": {
+                    "date": "09-04-2025",
+                    "format": "DD-MM-YYYY",
+                    "day": "09",
+                    "weekday": {
+                        "en": "Wednesday"
+                    },
+                    "month": {
+                        "number": 4,
+                        "en": "April"
+                    },
+                    "year": "2025",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    },
+                    "lunarSighting": false
+                },
+                "hijri": {
+                    "date": "11-10-1446",
+                    "format": "DD-MM-YYYY",
+                    "day": "11",
+                    "weekday": {
+                        "en": "Al Arba'a",
+                        "ar": "الاربعاء"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال",
+                        "days": 30
+                    },
+                    "year": "1446",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [],
+                    "adjustedHolidays": [],
+                    "method": "HJCoSA"
+                }
+            },
+            "meta": {
+                "latitude": 30.0626,
+                "longitude": 31.2497,
+                "timezone": "Africa/Cairo",
+                "method": {
+                    "id": 4,
+                    "name": "Umm Al-Qura University, Makkah",
+                    "params": {
+                        "Fajr": 18.5,
+                        "Isha": "90 min"
+                    },
+                    "location": {
+                        "latitude": 21.3890824,
+                        "longitude": 39.8579118
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "04:09 (EET)",
+                "Sunrise": "05:34 (EET)",
+                "Dhuhr": "11:56 (EET)",
+                "Asr": "15:30 (EET)",
+                "Sunset": "18:19 (EET)",
+                "Maghrib": "18:19 (EET)",
+                "Isha": "19:49 (EET)",
+                "Imsak": "03:59 (EET)",
+                "Midnight": "23:56 (EET)",
+                "Firstthird": "22:04 (EET)",
+                "Lastthird": "01:49 (EET)"
+            },
+            "date": {
+                "readable": "10 Apr 2025",
+                "timestamp": "1744268461",
+                "gregorian": {
+                    "date": "10-04-2025",
+                    "format": "DD-MM-YYYY",
+                    "day": "10",
+                    "weekday": {
+                        "en": "Thursday"
+                    },
+                    "month": {
+                        "number": 4,
+                        "en": "April"
+                    },
+                    "year": "2025",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    },
+                    "lunarSighting": false
+                },
+                "hijri": {
+                    "date": "12-10-1446",
+                    "format": "DD-MM-YYYY",
+                    "day": "12",
+                    "weekday": {
+                        "en": "Al Khamees",
+                        "ar": "الخميس"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال",
+                        "days": 30
+                    },
+                    "year": "1446",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [],
+                    "adjustedHolidays": [],
+                    "method": "HJCoSA"
+                }
+            },
+            "meta": {
+                "latitude": 30.0626,
+                "longitude": 31.2497,
+                "timezone": "Africa/Cairo",
+                "method": {
+                    "id": 4,
+                    "name": "Umm Al-Qura University, Makkah",
+                    "params": {
+                        "Fajr": 18.5,
+                        "Isha": "90 min"
+                    },
+                    "location": {
+                        "latitude": 21.3890824,
+                        "longitude": 39.8579118
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "04:08 (EET)",
+                "Sunrise": "05:33 (EET)",
+                "Dhuhr": "11:56 (EET)",
+                "Asr": "15:30 (EET)",
+                "Sunset": "18:20 (EET)",
+                "Maghrib": "18:20 (EET)",
+                "Isha": "19:50 (EET)",
+                "Imsak": "03:58 (EET)",
+                "Midnight": "23:56 (EET)",
+                "Firstthird": "22:04 (EET)",
+                "Lastthird": "01:48 (EET)"
+            },
+            "date": {
+                "readable": "11 Apr 2025",
+                "timestamp": "1744354861",
+                "gregorian": {
+                    "date": "11-04-2025",
+                    "format": "DD-MM-YYYY",
+                    "day": "11",
+                    "weekday": {
+                        "en": "Friday"
+                    },
+                    "month": {
+                        "number": 4,
+                        "en": "April"
+                    },
+                    "year": "2025",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    },
+                    "lunarSighting": false
+                },
+                "hijri": {
+                    "date": "13-10-1446",
+                    "format": "DD-MM-YYYY",
+                    "day": "13",
+                    "weekday": {
+                        "en": "Al Juma'a",
+                        "ar": "الجمعة"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال",
+                        "days": 30
+                    },
+                    "year": "1446",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [],
+                    "adjustedHolidays": [],
+                    "method": "HJCoSA"
+                }
+            },
+            "meta": {
+                "latitude": 30.0626,
+                "longitude": 31.2497,
+                "timezone": "Africa/Cairo",
+                "method": {
+                    "id": 4,
+                    "name": "Umm Al-Qura University, Makkah",
+                    "params": {
+                        "Fajr": 18.5,
+                        "Isha": "90 min"
+                    },
+                    "location": {
+                        "latitude": 21.3890824,
+                        "longitude": 39.8579118
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "04:06 (EET)",
+                "Sunrise": "05:31 (EET)",
+                "Dhuhr": "11:56 (EET)",
+                "Asr": "15:30 (EET)",
+                "Sunset": "18:20 (EET)",
+                "Maghrib": "18:20 (EET)",
+                "Isha": "19:50 (EET)",
+                "Imsak": "03:56 (EET)",
+                "Midnight": "23:56 (EET)",
+                "Firstthird": "22:04 (EET)",
+                "Lastthird": "01:48 (EET)"
+            },
+            "date": {
+                "readable": "12 Apr 2025",
+                "timestamp": "1744441261",
+                "gregorian": {
+                    "date": "12-04-2025",
+                    "format": "DD-MM-YYYY",
+                    "day": "12",
+                    "weekday": {
+                        "en": "Saturday"
+                    },
+                    "month": {
+                        "number": 4,
+                        "en": "April"
+                    },
+                    "year": "2025",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    },
+                    "lunarSighting": false
+                },
+                "hijri": {
+                    "date": "14-10-1446",
+                    "format": "DD-MM-YYYY",
+                    "day": "14",
+                    "weekday": {
+                        "en": "Al Sabt",
+                        "ar": "السبت"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال",
+                        "days": 30
+                    },
+                    "year": "1446",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [],
+                    "adjustedHolidays": [],
+                    "method": "HJCoSA"
+                }
+            },
+            "meta": {
+                "latitude": 30.0626,
+                "longitude": 31.2497,
+                "timezone": "Africa/Cairo",
+                "method": {
+                    "id": 4,
+                    "name": "Umm Al-Qura University, Makkah",
+                    "params": {
+                        "Fajr": 18.5,
+                        "Isha": "90 min"
+                    },
+                    "location": {
+                        "latitude": 21.3890824,
+                        "longitude": 39.8579118
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "04:05 (EET)",
+                "Sunrise": "05:30 (EET)",
+                "Dhuhr": "11:55 (EET)",
+                "Asr": "15:30 (EET)",
+                "Sunset": "18:21 (EET)",
+                "Maghrib": "18:21 (EET)",
+                "Isha": "19:51 (EET)",
+                "Imsak": "03:55 (EET)",
+                "Midnight": "23:56 (EET)",
+                "Firstthird": "22:04 (EET)",
+                "Lastthird": "01:47 (EET)"
+            },
+            "date": {
+                "readable": "13 Apr 2025",
+                "timestamp": "1744527661",
+                "gregorian": {
+                    "date": "13-04-2025",
+                    "format": "DD-MM-YYYY",
+                    "day": "13",
+                    "weekday": {
+                        "en": "Sunday"
+                    },
+                    "month": {
+                        "number": 4,
+                        "en": "April"
+                    },
+                    "year": "2025",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    },
+                    "lunarSighting": false
+                },
+                "hijri": {
+                    "date": "15-10-1446",
+                    "format": "DD-MM-YYYY",
+                    "day": "15",
+                    "weekday": {
+                        "en": "Al Ahad",
+                        "ar": "الاحد"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال",
+                        "days": 30
+                    },
+                    "year": "1446",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [],
+                    "adjustedHolidays": [],
+                    "method": "HJCoSA"
+                }
+            },
+            "meta": {
+                "latitude": 30.0626,
+                "longitude": 31.2497,
+                "timezone": "Africa/Cairo",
+                "method": {
+                    "id": 4,
+                    "name": "Umm Al-Qura University, Makkah",
+                    "params": {
+                        "Fajr": 18.5,
+                        "Isha": "90 min"
+                    },
+                    "location": {
+                        "latitude": 21.3890824,
+                        "longitude": 39.8579118
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "04:04 (EET)",
+                "Sunrise": "05:29 (EET)",
+                "Dhuhr": "11:55 (EET)",
+                "Asr": "15:30 (EET)",
+                "Sunset": "18:22 (EET)",
+                "Maghrib": "18:22 (EET)",
+                "Isha": "19:52 (EET)",
+                "Imsak": "03:54 (EET)",
+                "Midnight": "23:55 (EET)",
+                "Firstthird": "22:04 (EET)",
+                "Lastthird": "01:47 (EET)"
+            },
+            "date": {
+                "readable": "14 Apr 2025",
+                "timestamp": "1744614061",
+                "gregorian": {
+                    "date": "14-04-2025",
+                    "format": "DD-MM-YYYY",
+                    "day": "14",
+                    "weekday": {
+                        "en": "Monday"
+                    },
+                    "month": {
+                        "number": 4,
+                        "en": "April"
+                    },
+                    "year": "2025",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    },
+                    "lunarSighting": false
+                },
+                "hijri": {
+                    "date": "16-10-1446",
+                    "format": "DD-MM-YYYY",
+                    "day": "16",
+                    "weekday": {
+                        "en": "Al Athnayn",
+                        "ar": "الاثنين"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال",
+                        "days": 30
+                    },
+                    "year": "1446",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [],
+                    "adjustedHolidays": [],
+                    "method": "HJCoSA"
+                }
+            },
+            "meta": {
+                "latitude": 30.0626,
+                "longitude": 31.2497,
+                "timezone": "Africa/Cairo",
+                "method": {
+                    "id": 4,
+                    "name": "Umm Al-Qura University, Makkah",
+                    "params": {
+                        "Fajr": 18.5,
+                        "Isha": "90 min"
+                    },
+                    "location": {
+                        "latitude": 21.3890824,
+                        "longitude": 39.8579118
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "04:02 (EET)",
+                "Sunrise": "05:28 (EET)",
+                "Dhuhr": "11:55 (EET)",
+                "Asr": "15:29 (EET)",
+                "Sunset": "18:22 (EET)",
+                "Maghrib": "18:22 (EET)",
+                "Isha": "19:52 (EET)",
+                "Imsak": "03:52 (EET)",
+                "Midnight": "23:55 (EET)",
+                "Firstthird": "22:04 (EET)",
+                "Lastthird": "01:46 (EET)"
+            },
+            "date": {
+                "readable": "15 Apr 2025",
+                "timestamp": "1744700461",
+                "gregorian": {
+                    "date": "15-04-2025",
+                    "format": "DD-MM-YYYY",
+                    "day": "15",
+                    "weekday": {
+                        "en": "Tuesday"
+                    },
+                    "month": {
+                        "number": 4,
+                        "en": "April"
+                    },
+                    "year": "2025",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    },
+                    "lunarSighting": false
+                },
+                "hijri": {
+                    "date": "17-10-1446",
+                    "format": "DD-MM-YYYY",
+                    "day": "17",
+                    "weekday": {
+                        "en": "Al Thalaata",
+                        "ar": "الثلاثاء"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال",
+                        "days": 30
+                    },
+                    "year": "1446",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [],
+                    "adjustedHolidays": [],
+                    "method": "HJCoSA"
+                }
+            },
+            "meta": {
+                "latitude": 30.0626,
+                "longitude": 31.2497,
+                "timezone": "Africa/Cairo",
+                "method": {
+                    "id": 4,
+                    "name": "Umm Al-Qura University, Makkah",
+                    "params": {
+                        "Fajr": 18.5,
+                        "Isha": "90 min"
+                    },
+                    "location": {
+                        "latitude": 21.3890824,
+                        "longitude": 39.8579118
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "04:01 (EET)",
+                "Sunrise": "05:27 (EET)",
+                "Dhuhr": "11:55 (EET)",
+                "Asr": "15:29 (EET)",
+                "Sunset": "18:23 (EET)",
+                "Maghrib": "18:23 (EET)",
+                "Isha": "19:53 (EET)",
+                "Imsak": "03:51 (EET)",
+                "Midnight": "23:55 (EET)",
+                "Firstthird": "22:04 (EET)",
+                "Lastthird": "01:46 (EET)"
+            },
+            "date": {
+                "readable": "16 Apr 2025",
+                "timestamp": "1744786861",
+                "gregorian": {
+                    "date": "16-04-2025",
+                    "format": "DD-MM-YYYY",
+                    "day": "16",
+                    "weekday": {
+                        "en": "Wednesday"
+                    },
+                    "month": {
+                        "number": 4,
+                        "en": "April"
+                    },
+                    "year": "2025",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    },
+                    "lunarSighting": false
+                },
+                "hijri": {
+                    "date": "18-10-1446",
+                    "format": "DD-MM-YYYY",
+                    "day": "18",
+                    "weekday": {
+                        "en": "Al Arba'a",
+                        "ar": "الاربعاء"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال",
+                        "days": 30
+                    },
+                    "year": "1446",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [],
+                    "adjustedHolidays": [],
+                    "method": "HJCoSA"
+                }
+            },
+            "meta": {
+                "latitude": 30.0626,
+                "longitude": 31.2497,
+                "timezone": "Africa/Cairo",
+                "method": {
+                    "id": 4,
+                    "name": "Umm Al-Qura University, Makkah",
+                    "params": {
+                        "Fajr": 18.5,
+                        "Isha": "90 min"
+                    },
+                    "location": {
+                        "latitude": 21.3890824,
+                        "longitude": 39.8579118
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "04:00 (EET)",
+                "Sunrise": "05:26 (EET)",
+                "Dhuhr": "11:55 (EET)",
+                "Asr": "15:29 (EET)",
+                "Sunset": "18:24 (EET)",
+                "Maghrib": "18:24 (EET)",
+                "Isha": "19:54 (EET)",
+                "Imsak": "03:50 (EET)",
+                "Midnight": "23:55 (EET)",
+                "Firstthird": "22:04 (EET)",
+                "Lastthird": "01:45 (EET)"
+            },
+            "date": {
+                "readable": "17 Apr 2025",
+                "timestamp": "1744873261",
+                "gregorian": {
+                    "date": "17-04-2025",
+                    "format": "DD-MM-YYYY",
+                    "day": "17",
+                    "weekday": {
+                        "en": "Thursday"
+                    },
+                    "month": {
+                        "number": 4,
+                        "en": "April"
+                    },
+                    "year": "2025",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    },
+                    "lunarSighting": false
+                },
+                "hijri": {
+                    "date": "19-10-1446",
+                    "format": "DD-MM-YYYY",
+                    "day": "19",
+                    "weekday": {
+                        "en": "Al Khamees",
+                        "ar": "الخميس"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال",
+                        "days": 30
+                    },
+                    "year": "1446",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [],
+                    "adjustedHolidays": [],
+                    "method": "HJCoSA"
+                }
+            },
+            "meta": {
+                "latitude": 30.0626,
+                "longitude": 31.2497,
+                "timezone": "Africa/Cairo",
+                "method": {
+                    "id": 4,
+                    "name": "Umm Al-Qura University, Makkah",
+                    "params": {
+                        "Fajr": 18.5,
+                        "Isha": "90 min"
+                    },
+                    "location": {
+                        "latitude": 21.3890824,
+                        "longitude": 39.8579118
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "03:58 (EET)",
+                "Sunrise": "05:25 (EET)",
+                "Dhuhr": "11:54 (EET)",
+                "Asr": "15:29 (EET)",
+                "Sunset": "18:24 (EET)",
+                "Maghrib": "18:24 (EET)",
+                "Isha": "19:54 (EET)",
+                "Imsak": "03:48 (EET)",
+                "Midnight": "23:55 (EET)",
+                "Firstthird": "22:04 (EET)",
+                "Lastthird": "01:45 (EET)"
+            },
+            "date": {
+                "readable": "18 Apr 2025",
+                "timestamp": "1744959661",
+                "gregorian": {
+                    "date": "18-04-2025",
+                    "format": "DD-MM-YYYY",
+                    "day": "18",
+                    "weekday": {
+                        "en": "Friday"
+                    },
+                    "month": {
+                        "number": 4,
+                        "en": "April"
+                    },
+                    "year": "2025",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    },
+                    "lunarSighting": false
+                },
+                "hijri": {
+                    "date": "20-10-1446",
+                    "format": "DD-MM-YYYY",
+                    "day": "20",
+                    "weekday": {
+                        "en": "Al Juma'a",
+                        "ar": "الجمعة"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال",
+                        "days": 30
+                    },
+                    "year": "1446",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [],
+                    "adjustedHolidays": [],
+                    "method": "HJCoSA"
+                }
+            },
+            "meta": {
+                "latitude": 30.0626,
+                "longitude": 31.2497,
+                "timezone": "Africa/Cairo",
+                "method": {
+                    "id": 4,
+                    "name": "Umm Al-Qura University, Makkah",
+                    "params": {
+                        "Fajr": 18.5,
+                        "Isha": "90 min"
+                    },
+                    "location": {
+                        "latitude": 21.3890824,
+                        "longitude": 39.8579118
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "03:57 (EET)",
+                "Sunrise": "05:24 (EET)",
+                "Dhuhr": "11:54 (EET)",
+                "Asr": "15:29 (EET)",
+                "Sunset": "18:25 (EET)",
+                "Maghrib": "18:25 (EET)",
+                "Isha": "19:55 (EET)",
+                "Imsak": "03:47 (EET)",
+                "Midnight": "23:54 (EET)",
+                "Firstthird": "22:04 (EET)",
+                "Lastthird": "01:44 (EET)"
+            },
+            "date": {
+                "readable": "19 Apr 2025",
+                "timestamp": "1745046061",
+                "gregorian": {
+                    "date": "19-04-2025",
+                    "format": "DD-MM-YYYY",
+                    "day": "19",
+                    "weekday": {
+                        "en": "Saturday"
+                    },
+                    "month": {
+                        "number": 4,
+                        "en": "April"
+                    },
+                    "year": "2025",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    },
+                    "lunarSighting": false
+                },
+                "hijri": {
+                    "date": "21-10-1446",
+                    "format": "DD-MM-YYYY",
+                    "day": "21",
+                    "weekday": {
+                        "en": "Al Sabt",
+                        "ar": "السبت"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال",
+                        "days": 30
+                    },
+                    "year": "1446",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [],
+                    "adjustedHolidays": [],
+                    "method": "HJCoSA"
+                }
+            },
+            "meta": {
+                "latitude": 30.0626,
+                "longitude": 31.2497,
+                "timezone": "Africa/Cairo",
+                "method": {
+                    "id": 4,
+                    "name": "Umm Al-Qura University, Makkah",
+                    "params": {
+                        "Fajr": 18.5,
+                        "Isha": "90 min"
+                    },
+                    "location": {
+                        "latitude": 21.3890824,
+                        "longitude": 39.8579118
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "03:56 (EET)",
+                "Sunrise": "05:23 (EET)",
+                "Dhuhr": "11:54 (EET)",
+                "Asr": "15:29 (EET)",
+                "Sunset": "18:25 (EET)",
+                "Maghrib": "18:25 (EET)",
+                "Isha": "19:55 (EET)",
+                "Imsak": "03:46 (EET)",
+                "Midnight": "23:54 (EET)",
+                "Firstthird": "22:05 (EET)",
+                "Lastthird": "01:44 (EET)"
+            },
+            "date": {
+                "readable": "20 Apr 2025",
+                "timestamp": "1745132461",
+                "gregorian": {
+                    "date": "20-04-2025",
+                    "format": "DD-MM-YYYY",
+                    "day": "20",
+                    "weekday": {
+                        "en": "Sunday"
+                    },
+                    "month": {
+                        "number": 4,
+                        "en": "April"
+                    },
+                    "year": "2025",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    },
+                    "lunarSighting": false
+                },
+                "hijri": {
+                    "date": "22-10-1446",
+                    "format": "DD-MM-YYYY",
+                    "day": "22",
+                    "weekday": {
+                        "en": "Al Ahad",
+                        "ar": "الاحد"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال",
+                        "days": 30
+                    },
+                    "year": "1446",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [],
+                    "adjustedHolidays": [],
+                    "method": "HJCoSA"
+                }
+            },
+            "meta": {
+                "latitude": 30.0626,
+                "longitude": 31.2497,
+                "timezone": "Africa/Cairo",
+                "method": {
+                    "id": 4,
+                    "name": "Umm Al-Qura University, Makkah",
+                    "params": {
+                        "Fajr": 18.5,
+                        "Isha": "90 min"
+                    },
+                    "location": {
+                        "latitude": 21.3890824,
+                        "longitude": 39.8579118
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "03:55 (EET)",
+                "Sunrise": "05:22 (EET)",
+                "Dhuhr": "11:54 (EET)",
+                "Asr": "15:29 (EET)",
+                "Sunset": "18:26 (EET)",
+                "Maghrib": "18:26 (EET)",
+                "Isha": "19:56 (EET)",
+                "Imsak": "03:45 (EET)",
+                "Midnight": "23:54 (EET)",
+                "Firstthird": "22:05 (EET)",
+                "Lastthird": "01:43 (EET)"
+            },
+            "date": {
+                "readable": "21 Apr 2025",
+                "timestamp": "1745218861",
+                "gregorian": {
+                    "date": "21-04-2025",
+                    "format": "DD-MM-YYYY",
+                    "day": "21",
+                    "weekday": {
+                        "en": "Monday"
+                    },
+                    "month": {
+                        "number": 4,
+                        "en": "April"
+                    },
+                    "year": "2025",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    },
+                    "lunarSighting": false
+                },
+                "hijri": {
+                    "date": "23-10-1446",
+                    "format": "DD-MM-YYYY",
+                    "day": "23",
+                    "weekday": {
+                        "en": "Al Athnayn",
+                        "ar": "الاثنين"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال",
+                        "days": 30
+                    },
+                    "year": "1446",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [],
+                    "adjustedHolidays": [],
+                    "method": "HJCoSA"
+                }
+            },
+            "meta": {
+                "latitude": 30.0626,
+                "longitude": 31.2497,
+                "timezone": "Africa/Cairo",
+                "method": {
+                    "id": 4,
+                    "name": "Umm Al-Qura University, Makkah",
+                    "params": {
+                        "Fajr": 18.5,
+                        "Isha": "90 min"
+                    },
+                    "location": {
+                        "latitude": 21.3890824,
+                        "longitude": 39.8579118
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "03:53 (EET)",
+                "Sunrise": "05:21 (EET)",
+                "Dhuhr": "11:53 (EET)",
+                "Asr": "15:29 (EET)",
+                "Sunset": "18:27 (EET)",
+                "Maghrib": "18:27 (EET)",
+                "Isha": "19:57 (EET)",
+                "Imsak": "03:43 (EET)",
+                "Midnight": "23:54 (EET)",
+                "Firstthird": "22:05 (EET)",
+                "Lastthird": "01:43 (EET)"
+            },
+            "date": {
+                "readable": "22 Apr 2025",
+                "timestamp": "1745305261",
+                "gregorian": {
+                    "date": "22-04-2025",
+                    "format": "DD-MM-YYYY",
+                    "day": "22",
+                    "weekday": {
+                        "en": "Tuesday"
+                    },
+                    "month": {
+                        "number": 4,
+                        "en": "April"
+                    },
+                    "year": "2025",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    },
+                    "lunarSighting": false
+                },
+                "hijri": {
+                    "date": "24-10-1446",
+                    "format": "DD-MM-YYYY",
+                    "day": "24",
+                    "weekday": {
+                        "en": "Al Thalaata",
+                        "ar": "الثلاثاء"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال",
+                        "days": 30
+                    },
+                    "year": "1446",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [],
+                    "adjustedHolidays": [],
+                    "method": "HJCoSA"
+                }
+            },
+            "meta": {
+                "latitude": 30.0626,
+                "longitude": 31.2497,
+                "timezone": "Africa/Cairo",
+                "method": {
+                    "id": 4,
+                    "name": "Umm Al-Qura University, Makkah",
+                    "params": {
+                        "Fajr": 18.5,
+                        "Isha": "90 min"
+                    },
+                    "location": {
+                        "latitude": 21.3890824,
+                        "longitude": 39.8579118
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "03:52 (EET)",
+                "Sunrise": "05:20 (EET)",
+                "Dhuhr": "11:53 (EET)",
+                "Asr": "15:29 (EET)",
+                "Sunset": "18:27 (EET)",
+                "Maghrib": "18:27 (EET)",
+                "Isha": "19:57 (EET)",
+                "Imsak": "03:42 (EET)",
+                "Midnight": "23:54 (EET)",
+                "Firstthird": "22:05 (EET)",
+                "Lastthird": "01:42 (EET)"
+            },
+            "date": {
+                "readable": "23 Apr 2025",
+                "timestamp": "1745391661",
+                "gregorian": {
+                    "date": "23-04-2025",
+                    "format": "DD-MM-YYYY",
+                    "day": "23",
+                    "weekday": {
+                        "en": "Wednesday"
+                    },
+                    "month": {
+                        "number": 4,
+                        "en": "April"
+                    },
+                    "year": "2025",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    },
+                    "lunarSighting": false
+                },
+                "hijri": {
+                    "date": "25-10-1446",
+                    "format": "DD-MM-YYYY",
+                    "day": "25",
+                    "weekday": {
+                        "en": "Al Arba'a",
+                        "ar": "الاربعاء"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال",
+                        "days": 30
+                    },
+                    "year": "1446",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [],
+                    "adjustedHolidays": [],
+                    "method": "HJCoSA"
+                }
+            },
+            "meta": {
+                "latitude": 30.0626,
+                "longitude": 31.2497,
+                "timezone": "Africa/Cairo",
+                "method": {
+                    "id": 4,
+                    "name": "Umm Al-Qura University, Makkah",
+                    "params": {
+                        "Fajr": 18.5,
+                        "Isha": "90 min"
+                    },
+                    "location": {
+                        "latitude": 21.3890824,
+                        "longitude": 39.8579118
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "03:51 (EET)",
+                "Sunrise": "05:19 (EET)",
+                "Dhuhr": "11:53 (EET)",
+                "Asr": "15:29 (EET)",
+                "Sunset": "18:28 (EET)",
+                "Maghrib": "18:28 (EET)",
+                "Isha": "19:58 (EET)",
+                "Imsak": "03:41 (EET)",
+                "Midnight": "23:53 (EET)",
+                "Firstthird": "22:05 (EET)",
+                "Lastthird": "01:42 (EET)"
+            },
+            "date": {
+                "readable": "24 Apr 2025",
+                "timestamp": "1745478061",
+                "gregorian": {
+                    "date": "24-04-2025",
+                    "format": "DD-MM-YYYY",
+                    "day": "24",
+                    "weekday": {
+                        "en": "Thursday"
+                    },
+                    "month": {
+                        "number": 4,
+                        "en": "April"
+                    },
+                    "year": "2025",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    },
+                    "lunarSighting": false
+                },
+                "hijri": {
+                    "date": "26-10-1446",
+                    "format": "DD-MM-YYYY",
+                    "day": "26",
+                    "weekday": {
+                        "en": "Al Khamees",
+                        "ar": "الخميس"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال",
+                        "days": 30
+                    },
+                    "year": "1446",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [],
+                    "adjustedHolidays": [],
+                    "method": "HJCoSA"
+                }
+            },
+            "meta": {
+                "latitude": 30.0626,
+                "longitude": 31.2497,
+                "timezone": "Africa/Cairo",
+                "method": {
+                    "id": 4,
+                    "name": "Umm Al-Qura University, Makkah",
+                    "params": {
+                        "Fajr": 18.5,
+                        "Isha": "90 min"
+                    },
+                    "location": {
+                        "latitude": 21.3890824,
+                        "longitude": 39.8579118
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "04:50 (EEST)",
+                "Sunrise": "06:18 (EEST)",
+                "Dhuhr": "12:53 (EEST)",
+                "Asr": "16:29 (EEST)",
+                "Sunset": "19:29 (EEST)",
+                "Maghrib": "19:29 (EEST)",
+                "Isha": "20:59 (EEST)",
+                "Imsak": "04:40 (EEST)",
+                "Midnight": "00:53 (EEST)",
+                "Firstthird": "23:05 (EEST)",
+                "Lastthird": "02:41 (EEST)"
+            },
+            "date": {
+                "readable": "25 Apr 2025",
+                "timestamp": "1745560861",
+                "gregorian": {
+                    "date": "25-04-2025",
+                    "format": "DD-MM-YYYY",
+                    "day": "25",
+                    "weekday": {
+                        "en": "Friday"
+                    },
+                    "month": {
+                        "number": 4,
+                        "en": "April"
+                    },
+                    "year": "2025",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    },
+                    "lunarSighting": false
+                },
+                "hijri": {
+                    "date": "27-10-1446",
+                    "format": "DD-MM-YYYY",
+                    "day": "27",
+                    "weekday": {
+                        "en": "Al Juma'a",
+                        "ar": "الجمعة"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال",
+                        "days": 30
+                    },
+                    "year": "1446",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [],
+                    "adjustedHolidays": [],
+                    "method": "HJCoSA"
+                }
+            },
+            "meta": {
+                "latitude": 30.0626,
+                "longitude": 31.2497,
+                "timezone": "Africa/Cairo",
+                "method": {
+                    "id": 4,
+                    "name": "Umm Al-Qura University, Makkah",
+                    "params": {
+                        "Fajr": 18.5,
+                        "Isha": "90 min"
+                    },
+                    "location": {
+                        "latitude": 21.3890824,
+                        "longitude": 39.8579118
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "04:48 (EEST)",
+                "Sunrise": "06:17 (EEST)",
+                "Dhuhr": "12:53 (EEST)",
+                "Asr": "16:29 (EEST)",
+                "Sunset": "19:29 (EEST)",
+                "Maghrib": "19:29 (EEST)",
+                "Isha": "20:59 (EEST)",
+                "Imsak": "04:38 (EEST)",
+                "Midnight": "00:53 (EEST)",
+                "Firstthird": "23:05 (EEST)",
+                "Lastthird": "02:41 (EEST)"
+            },
+            "date": {
+                "readable": "26 Apr 2025",
+                "timestamp": "1745647261",
+                "gregorian": {
+                    "date": "26-04-2025",
+                    "format": "DD-MM-YYYY",
+                    "day": "26",
+                    "weekday": {
+                        "en": "Saturday"
+                    },
+                    "month": {
+                        "number": 4,
+                        "en": "April"
+                    },
+                    "year": "2025",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    },
+                    "lunarSighting": false
+                },
+                "hijri": {
+                    "date": "28-10-1446",
+                    "format": "DD-MM-YYYY",
+                    "day": "28",
+                    "weekday": {
+                        "en": "Al Sabt",
+                        "ar": "السبت"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال",
+                        "days": 30
+                    },
+                    "year": "1446",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [],
+                    "adjustedHolidays": [],
+                    "method": "HJCoSA"
+                }
+            },
+            "meta": {
+                "latitude": 30.0626,
+                "longitude": 31.2497,
+                "timezone": "Africa/Cairo",
+                "method": {
+                    "id": 4,
+                    "name": "Umm Al-Qura University, Makkah",
+                    "params": {
+                        "Fajr": 18.5,
+                        "Isha": "90 min"
+                    },
+                    "location": {
+                        "latitude": 21.3890824,
+                        "longitude": 39.8579118
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "04:47 (EEST)",
+                "Sunrise": "06:16 (EEST)",
+                "Dhuhr": "12:53 (EEST)",
+                "Asr": "16:29 (EEST)",
+                "Sunset": "19:30 (EEST)",
+                "Maghrib": "19:30 (EEST)",
+                "Isha": "21:00 (EEST)",
+                "Imsak": "04:37 (EEST)",
+                "Midnight": "00:53 (EEST)",
+                "Firstthird": "23:05 (EEST)",
+                "Lastthird": "02:40 (EEST)"
+            },
+            "date": {
+                "readable": "27 Apr 2025",
+                "timestamp": "1745733661",
+                "gregorian": {
+                    "date": "27-04-2025",
+                    "format": "DD-MM-YYYY",
+                    "day": "27",
+                    "weekday": {
+                        "en": "Sunday"
+                    },
+                    "month": {
+                        "number": 4,
+                        "en": "April"
+                    },
+                    "year": "2025",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    },
+                    "lunarSighting": false
+                },
+                "hijri": {
+                    "date": "29-10-1446",
+                    "format": "DD-MM-YYYY",
+                    "day": "29",
+                    "weekday": {
+                        "en": "Al Ahad",
+                        "ar": "الاحد"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال",
+                        "days": 30
+                    },
+                    "year": "1446",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [],
+                    "adjustedHolidays": [],
+                    "method": "HJCoSA"
+                }
+            },
+            "meta": {
+                "latitude": 30.0626,
+                "longitude": 31.2497,
+                "timezone": "Africa/Cairo",
+                "method": {
+                    "id": 4,
+                    "name": "Umm Al-Qura University, Makkah",
+                    "params": {
+                        "Fajr": 18.5,
+                        "Isha": "90 min"
+                    },
+                    "location": {
+                        "latitude": 21.3890824,
+                        "longitude": 39.8579118
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "04:46 (EEST)",
+                "Sunrise": "06:15 (EEST)",
+                "Dhuhr": "12:52 (EEST)",
+                "Asr": "16:29 (EEST)",
+                "Sunset": "19:31 (EEST)",
+                "Maghrib": "19:31 (EEST)",
+                "Isha": "21:01 (EEST)",
+                "Imsak": "04:36 (EEST)",
+                "Midnight": "00:53 (EEST)",
+                "Firstthird": "23:05 (EEST)",
+                "Lastthird": "02:40 (EEST)"
+            },
+            "date": {
+                "readable": "28 Apr 2025",
+                "timestamp": "1745820061",
+                "gregorian": {
+                    "date": "28-04-2025",
+                    "format": "DD-MM-YYYY",
+                    "day": "28",
+                    "weekday": {
+                        "en": "Monday"
+                    },
+                    "month": {
+                        "number": 4,
+                        "en": "April"
+                    },
+                    "year": "2025",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    },
+                    "lunarSighting": false
+                },
+                "hijri": {
+                    "date": "30-10-1446",
+                    "format": "DD-MM-YYYY",
+                    "day": "30",
+                    "weekday": {
+                        "en": "Al Athnayn",
+                        "ar": "الاثنين"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال",
+                        "days": 30
+                    },
+                    "year": "1446",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [],
+                    "adjustedHolidays": [],
+                    "method": "HJCoSA"
+                }
+            },
+            "meta": {
+                "latitude": 30.0626,
+                "longitude": 31.2497,
+                "timezone": "Africa/Cairo",
+                "method": {
+                    "id": 4,
+                    "name": "Umm Al-Qura University, Makkah",
+                    "params": {
+                        "Fajr": 18.5,
+                        "Isha": "90 min"
+                    },
+                    "location": {
+                        "latitude": 21.3890824,
+                        "longitude": 39.8579118
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "04:45 (EEST)",
+                "Sunrise": "06:14 (EEST)",
+                "Dhuhr": "12:52 (EEST)",
+                "Asr": "16:29 (EEST)",
+                "Sunset": "19:31 (EEST)",
+                "Maghrib": "19:31 (EEST)",
+                "Isha": "21:01 (EEST)",
+                "Imsak": "04:35 (EEST)",
+                "Midnight": "00:53 (EEST)",
+                "Firstthird": "23:05 (EEST)",
+                "Lastthird": "02:40 (EEST)"
+            },
+            "date": {
+                "readable": "29 Apr 2025",
+                "timestamp": "1745906461",
+                "gregorian": {
+                    "date": "29-04-2025",
+                    "format": "DD-MM-YYYY",
+                    "day": "29",
+                    "weekday": {
+                        "en": "Tuesday"
+                    },
+                    "month": {
+                        "number": 4,
+                        "en": "April"
+                    },
+                    "year": "2025",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    },
+                    "lunarSighting": false
+                },
+                "hijri": {
+                    "date": "01-11-1446",
+                    "format": "DD-MM-YYYY",
+                    "day": "1",
+                    "weekday": {
+                        "en": "Al Thalaata",
+                        "ar": "الثلاثاء"
+                    },
+                    "month": {
+                        "number": 11,
+                        "en": "Dhū al-Qaʿdah",
+                        "ar": "ذوالقعدة",
+                        "days": 29
+                    },
+                    "year": "1446",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [],
+                    "adjustedHolidays": [],
+                    "method": "HJCoSA"
+                }
+            },
+            "meta": {
+                "latitude": 30.0626,
+                "longitude": 31.2497,
+                "timezone": "Africa/Cairo",
+                "method": {
+                    "id": 4,
+                    "name": "Umm Al-Qura University, Makkah",
+                    "params": {
+                        "Fajr": 18.5,
+                        "Isha": "90 min"
+                    },
+                    "location": {
+                        "latitude": 21.3890824,
+                        "longitude": 39.8579118
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "04:44 (EEST)",
+                "Sunrise": "06:13 (EEST)",
+                "Dhuhr": "12:52 (EEST)",
+                "Asr": "16:28 (EEST)",
+                "Sunset": "19:32 (EEST)",
+                "Maghrib": "19:32 (EEST)",
+                "Isha": "21:02 (EEST)",
+                "Imsak": "04:34 (EEST)",
+                "Midnight": "00:52 (EEST)",
+                "Firstthird": "23:06 (EEST)",
+                "Lastthird": "02:39 (EEST)"
+            },
+            "date": {
+                "readable": "30 Apr 2025",
+                "timestamp": "1745992861",
+                "gregorian": {
+                    "date": "30-04-2025",
+                    "format": "DD-MM-YYYY",
+                    "day": "30",
+                    "weekday": {
+                        "en": "Wednesday"
+                    },
+                    "month": {
+                        "number": 4,
+                        "en": "April"
+                    },
+                    "year": "2025",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    },
+                    "lunarSighting": false
+                },
+                "hijri": {
+                    "date": "02-11-1446",
+                    "format": "DD-MM-YYYY",
+                    "day": "2",
+                    "weekday": {
+                        "en": "Al Arba'a",
+                        "ar": "الاربعاء"
+                    },
+                    "month": {
+                        "number": 11,
+                        "en": "Dhū al-Qaʿdah",
+                        "ar": "ذوالقعدة",
+                        "days": 29
+                    },
+                    "year": "1446",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [],
+                    "adjustedHolidays": [],
+                    "method": "HJCoSA"
+                }
+            },
+            "meta": {
+                "latitude": 30.0626,
+                "longitude": 31.2497,
+                "timezone": "Africa/Cairo",
+                "method": {
+                    "id": 4,
+                    "name": "Umm Al-Qura University, Makkah",
+                    "params": {
+                        "Fajr": 18.5,
+                        "Isha": "90 min"
+                    },
+                    "location": {
+                        "latitude": 21.3890824,
+                        "longitude": 39.8579118
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        }
+    ]
+}

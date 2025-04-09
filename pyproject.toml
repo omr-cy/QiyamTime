@@ -1,0 +1,37 @@
+[project]
+name = "قيام الأنبياء"
+version = "0.1.0"
+description = "هذا تطبيق لحساب الوقت التقريبي لنصف الليل وثلثله وسدسه."
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{ name = "Omr Ashrf", email = "omr.ashrf.prog@gamil.com" }]
+dependencies = [
+  "flet==0.27.4", 
+  "lxml==5.3.0", 
+  "beautifulsoup4==4.10.0", 
+  "httpx[http2]", 
+  "fake-useragent",
+]
+
+[tool.flet]
+org = "com.mycompany"
+product = "قيام الأنبياء"
+company = "mycompany"
+copyright = "Copyright (C) 2025 by omrAshrf"
+
+assets = ["src/assets"]
+app.module = "main" # --module-name
+app.path = "src" # python_app_path
+
+permissions = ["internet"] # --permissions
+
+
+[tool.flet.app]
+path = "src"
+
+
+[tool.flet.android]
+split_per_abi = true
+
+
+
