@@ -41,51 +41,73 @@ def fetch_night_times(prayer_data, start_time="Isha", end_time="Fajr"):
         return (night_start_time.strip(), today_night_end_time.strip())
     
     
-def qyam_equaiton(start_night, end_night):
+def qyam_calc(start_night, end_night):
     start_night_dt = datetime.strptime(start_night, "%H:%M")
     end_night_dt = datetime.strptime(end_night, "%H:%M") + timedelta(days=1)  # إضافة يوم للشروق
 
     duration = end_night_dt - start_night_dt
     sixth = duration / 6
     midnight = start_night_dt + duration / 2
-    fourth_and_fifth_sixth = (start_night_dt + (sixth * 4)).time()
+    fourth_and_fifth_sixth = (start_night_dt + (sixth * 3)).time()
+    last_third = (start_night_dt + (sixth * 4)).time()
     six_sixth = (start_night_dt + (sixth * 5)).time()
     
-    #print(f"All night: {duration}")
-    #print(f"One sixth: {sixth}")
-    #print(f"Midnight: {midnight.time()}")
-    #print(f"4 and 5 sixth starts at: {fourth_and_fifth_sixth}, ends at:{six_sixth}")
-    #print(f"the 6 sixth starts at: {six_sixth}")
-    
     calculation =  {
+        "start_night": start_night,
         "allnight": str(duration),
         "midnight": str(midnight.time()),
-        "fourth_and_fifth_sixth": str(fourth_and_fifth_sixth),
-        "six_sixth": str(six_sixth)        
+        "start_off_fourth_and_fifth_sixth": str(fourth_and_fifth_sixth),
+        "start_off_last_third": str(last_third),  
+        "start_off_last_sixth": str(six_sixth),
+        "end_night": end_night 
     }
     
     print(calculation)
     return calculation
     
     
-def main():
-    if path.exists(f"data/prayer_data({month}-{year}).json"):
-        #print(f"Exists -> prayer_data({month}-{year}).json")
-        with open(f"data/prayer_data({month}-{year}).json", "r", encoding="utf-8") as json_file:
-            prayer_data = json.load(json_file)
-            qyam_equaiton(*fetch_night_times(prayer_data))
-        
-
-    else:
-        #print(f"Not Exists -> prayer_data({month}-{year}).json")
-        get_prayer_times()
-        with open(f"data/prayer_data({month}-{year}).json", "r", encoding="utf-8") as json_file:
-            prayer_data = json.load(json_file)
-            
-            qyam_equaiton(today_sunset.strip(), tomorrow_fajr.strip())
-        
+def qyam_equaiton(start, end, auto_calc=True):
     
-main()    
+    if auto_calc:
+    
+        start_time = start.capitalize()
+        end_time = end.capitalize()
+        
+        if path.exists(f"data/prayer_data({month}-{year}).json"):
+            with open(f"data/prayer_data({month}-{year}).json", "r", encoding="utf-8") as json_file:
+                prayer_data = json.load(json_file)
+                
+                return qyam_calc(
+                    *fetch_night_times(
+                        prayer_data,
+                        start_time=start_time,
+                        end_time=end_time
+                    )
+                )
+                
+        else:
+            get_prayer_times()
+            with open(f"data/prayer_data({month}-{year}).json", "r", encoding="utf-8") as json_file:
+                prayer_data = json.load(json_file)
+                
+                return qyam_calc(
+                    *fetch_night_times(
+                        prayer_data,
+                        start_time=start_time,
+                        end_time=end_time
+                    )
+                )
+        
+    else:
+        
+        return qyam_calc(start, end)
+    
+    
+#qyam_equaiton("isha", "fajr")
+#qyam_equaiton("sunset", "sunrise")
+#qyam_equaiton("isha", "sunrise")
+#qyam_equaiton("06:18", "4:0", auto_calc=False)
+
      
         
         
