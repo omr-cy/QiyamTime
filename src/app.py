@@ -48,15 +48,14 @@ def qyam_calc(start_night, end_night):
     duration = end_night_dt - start_night_dt
     sixth = duration / 6
     midnight = start_night_dt + duration / 2
-    fourth_and_fifth_sixth = (start_night_dt + (sixth * 3)).time()
     last_third = (start_night_dt + (sixth * 4)).time()
+    # importent not "السدسي الرابع والخامس يبدأنان من منتصف الليل وينتهيان في اول السدس الأخير " 
     six_sixth = (start_night_dt + (sixth * 5)).time()
     
     calculation =  {
-        "start_night": start_night,
         "allnight": str(duration),
+        "start_night": start_night,    
         "midnight": str(midnight.time()),
-        "start_off_fourth_and_fifth_sixth": str(fourth_and_fifth_sixth),
         "start_off_last_third": str(last_third),  
         "start_off_last_sixth": str(six_sixth),
         "end_night": end_night 
@@ -68,7 +67,13 @@ def qyam_calc(start_night, end_night):
     
 def qyam_equaiton(start, end, auto_calc=True):
     
-    if auto_calc:
+    try: # علشان لو المستخدم غير اللوكيشن يتم اعادة بناء ملف اوقات الصلاوات على اللوكيشن الجديد
+        thread = Thread(target=get_prayer_times)
+        thread.start() #  وضعتها في ثريد علشان متأثرش على باقي التطبيق 
+    except:
+        pass
+    
+    if auto_calc: # لو سيتم حساب الوقت تلقائي
     
         start_time = start.capitalize()
         end_time = end.capitalize()
@@ -98,12 +103,12 @@ def qyam_equaiton(start, end, auto_calc=True):
                     )
                 )
         
-    else:
+    else: # لو سيتم حساب الوقت يدوي
         
         return qyam_calc(start, end)
     
     
-#qyam_equaiton("isha", "fajr")
+qyam_equaiton("isha", "fajr")
 #qyam_equaiton("sunset", "sunrise")
 #qyam_equaiton("isha", "sunrise")
 #qyam_equaiton("06:18", "4:0", auto_calc=False)
