@@ -8,7 +8,7 @@ def main(page: ft.Page) -> None:
     
     
     # Setup Controls | تهيئة عناصر التطبيق
-    page.appbar = my_appbar()
+    page.appbar = my_appbar
     
 
 
