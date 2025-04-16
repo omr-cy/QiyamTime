@@ -21,7 +21,7 @@ def get_prayer_times():
     url = f"https://api.aladhan.com/v1/calendar?latitude={lat}&longitude={lng}&month={month}&year={year}&method=4"
     prayer_data = requests.get(url).json()
         
-    with open(f"data/prayer_data({month}-{year}).json", "w", encoding="utf-8") as json_file:
+    with open(f"storage/data/prayer_data({month}-{year}).json", "w", encoding="utf-8") as json_file:
         json.dump(prayer_data, json_file, ensure_ascii=False, indent=4)
     print(f"Saved as prayer_data({month}-{year}).json")   
 
@@ -78,8 +78,8 @@ def qyam_equaiton(start, end, auto_calc=True):
         start_time = start.capitalize()
         end_time = end.capitalize()
         
-        if path.exists(f"data/prayer_data({month}-{year}).json"):
-            with open(f"data/prayer_data({month}-{year}).json", "r", encoding="utf-8") as json_file:
+        if path.exists(f"storage/data/prayer_data({month}-{year}).json"):
+            with open(f"storage/data/prayer_data({month}-{year}).json", "r", encoding="utf-8") as json_file:
                 prayer_data = json.load(json_file)
                 
                 return qyam_calc(
@@ -92,7 +92,7 @@ def qyam_equaiton(start, end, auto_calc=True):
                 
         else:
             get_prayer_times()
-            with open(f"data/prayer_data({month}-{year}).json", "r", encoding="utf-8") as json_file:
+            with open(f"storage/data/prayer_data({month}-{year}).json", "r", encoding="utf-8") as json_file:
                 prayer_data = json.load(json_file)
                 
                 return qyam_calc(
@@ -106,11 +106,13 @@ def qyam_equaiton(start, end, auto_calc=True):
     else: # لو سيتم حساب الوقت يدوي
         
         return qyam_calc(start, end)
-    
-    
-qyam_equaiton("isha", "fajr")
-#qyam_equaiton("sunset", "sunrise")
-#qyam_equaiton("isha", "sunrise")
+
+
+# Tists
+# qyam_equaiton("sunset", "fajr")
+# qyam_equaiton("isha", "fajr")
+# qyam_equaiton("sunset", "sunrise")
+# qyam_equaiton("isha", "sunrise")
 #qyam_equaiton("06:18", "4:0", auto_calc=False)
 
      
