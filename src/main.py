@@ -1,6 +1,7 @@
 import flet as ft
 from flet_route import Routing, path
-from views.home import home 
+from views import home
+from views import timeline
 # from os import path
 
 def main(page: ft.Page) -> None:
@@ -14,12 +15,12 @@ def main(page: ft.Page) -> None:
         )
     )
 
-    Routing(
-        page=page,
-        app_routes=[
-            path(url='/', clear=True, view=home)
-        ]
-    )
+    app_routes = [
+        path(url='/', clear=True, view=home),
+        path(url='/timeline', clear=True, view=timeline)
+    ]
+
+    Routing(page=page, app_routes=app_routes)
 
     page.go(page.route)
 

@@ -19,7 +19,7 @@ def home(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         )
     )
 
-    # SETUP CONTROLS | تهيئة عناصر التطبيق
+    ### SETUP CONTROLS | تهيئة عناصر التطبيق ###
     willcome_label:ft.Text = ft.Text(
             value='مرحباً بك في تطبيق \nوقت القيام',
             text_align='center',
@@ -43,7 +43,7 @@ def home(page: ft.Page, params: Params, basket: Basket) -> ft.View:
                     rtl=True,
                     expand=8,
                     spans=[
-                        ft.TextSpan("\tتحديد تلقائي للموقع", style=ft.TextStyle(size=20)),
+                        ft.TextSpan("\tتحديد تلقائي بالموقع", style=ft.TextStyle(size=20)),
                         ft.TextSpan("\n\tتحديد تلقائي لبداية الليل ونهايته حسب موقعك", style=ft.TextStyle(size=10, color=ft.Colors.WHITE54))
                     ],
                 ),
@@ -75,105 +75,203 @@ def home(page: ft.Page, params: Params, basket: Basket) -> ft.View:
             ],
         ),
     )
-
-    time_picker = ft.TimePicker(
-        confirm_text="Confirm",
-        error_invalid_text="Time out of range",
-        help_text="Pick your time slot",
-        # on_change=handle_change,
-        # on_dismiss=handle_dismissal,
-        # on_entry_mode_change=handle_entry_mode_change,
+   
+    # Satrt DropDown
+    start_dd = ft.Dropdown( 
+        expand=True,
+        width=190,
+        elevation=20,
+        bgcolor='#1c2739',
+        border_radius=15,
+        border_width=2,
+        # border_color='#182745',
+        hint_text='--:--',
+        # alignment=ft.CrossAxisAlignment.CENTER
     )
 
-    # model dialog
+    # End DropDown
+    end_dd = ft.Dropdown( 
+        expand=True,
+        width=190,
+        elevation=20,
+        bgcolor='#1c2739',
+        border_radius=15,
+        border_width=2,
+        # border_color='#182745',
+        hint_text='--:--',
+        # alignment=ft.CrossAxisAlignment.CENTER
+    )
+
+    time_picker:ft.TimePicker = ft.TimePicker(
+        confirm_text="موافق",
+        error_invalid_text="الوقت غير صحيح",
+        help_text="اختر بدقة",
+        cancel_text="إلغاء",
+        expand=False,
+        # hour_label_text='--'
+    )
+
+    confirm_btn:fr.IconButton = ft.ElevatedButton(
+        text='موافق',
+        width=90,
+        height=50,
+        elevation=20,
+        bgcolor='#142F66',
+        disabled=True,
+        style=ft.ButtonStyle(
+            shape=ft.ContinuousRectangleBorder(radius=30),
+            # side=ft.BorderSide(2) # color='#182745'
+        )
+        # on_click=lambda e: page.go(f"/timeline?start_night={start_dd.value}&end_night={end_dd.value}"), ## The URL way
+    )
+
+    # Main Dialog
     paker_dlg: ft.AlertDialog = ft.AlertDialog(
         bgcolor='#1c2739',
         actions_alignment='center',
-        action_button_padding=10,
+        action_button_padding=5,
+        content_padding=10,
         actions=[
             ft.ElevatedButton(
                 text='إلغاء',
+                width=90,
+                height=50,
+                elevation=20,
+                bgcolor='#111B2D',
+                style=ft.ButtonStyle(
+                    shape=ft.ContinuousRectangleBorder(radius=30),    
+                    # side=ft.BorderSide(2) # color='#182745'
+                ),  
+                on_click=lambda e: (
+                    setattr(paker_dlg, "open", False),
+                    page.update()
+                )
             ),
-            ft.ElevatedButton(
-                text='موافق',
-            ),
+            confirm_btn
         ]
     )   
 
-    start_dd = ft.DropdownM2(
-        expand=True,
-        bgcolor='#FC182636',
-        elevation=20,
-        hint_text='-- 00:00',
-    )
 
-    end_dd = ft.Dropdown(
-        expand=True,
-        bgcolor='#FC182636',
-        elevation=20,
-        hint_text='-- 00:00'
-    )
-    
-
-    # SETUP THE EVENTS
-    def send_to_timeline(start_time, end_time):
-        print(start_time, end_time)
-
-    def clear_all():
-        paker_dlg.content = None
-        start_dd.options = None
-        end_dd.options = None
+    ### SETUP THE EVENTS ###
+    def validate(e: ft.ControlEvent):
+        if all([start_dd.value, end_dd.value]):
+            confirm_btn.disabled = False
+        else:
+            confirm_btn.disabled = True
         page.update()
 
-    def open_paker_dlg(time_line_mode): # حل حلو اني اعمل فانكشن تهندل نتايج العنصر لو كان هيبقى منه نسخ كتير
-        clear_all()
-        global start_time
-        global end_time
+    def push_to_timeline(e: ft.ControlEvent): ## basket way ##
+        view.controls.remove(paker_dlg) # To Escbae the dlg showing error in timeline page
+        view.clean() 
+        page.clean()
+        page.update()
 
-        if time_line_mode == 'outo': # AUTO TIMELINE
+        basket.start_night = start_dd.value
+        basket.end_night = end_dd.value
+
+        page.go("/timeline")
+        print(f"Sending -> {start_dd.value} , {end_dd.value}")
+        
+    def pick_time_for(dropdown: ft.Dropdown):
+        page.overlay.append(time_picker)
+        def _show_picker(e):
+            def on_time_selected(ev):
+                if ev.control.value:
+                    # نحول الوقت لتنسيق "ساعة:دقيقة"
+                    selected_time = ev.control.value.strftime("%H:%M")
+                    # نحط الوقت جوه الـ Dropdown
+                    dropdown.hint_text = selected_time
+                    dropdown.value = selected_time
+                    validate('e')
+                    # print(dropdown.value)
+                    
+            time_picker.on_change = on_time_selected
+            time_picker.open = True
+            page.update()
+
+        return _show_picker
+
+    def clear_dd():
+        # paker_dlg.content = None
+        start_dd.value = None #if start_dd.value in [':'] else start_dd.value
+        end_dd.value = None #if start_dd.value in [':'] else start_dd.value
+        start_dd.hint_text = '--:--'
+        end_dd.hint_text = '--:--'
+        start_dd.options = None
+        end_dd.options = None
+        validate('e')
+
+    def open_dlg_paker(timeline_mode): # حل حلو اني اعمل فانكشن تهندل نتايج العنصر لو كان هيبقى منه نسخ كتير
+        clear_dd()
+
+        if timeline_mode == 'auto': # AUTO TIMELINE
             paker_dlg.title = ft.Text('أختر توقيت الليل', text_align='center', rtl=True)
+            start_dd.disabled = False
+            end_dd.disabled = False
 
-            start_dd.icon = ft.IconButton(icon=ft.Icons.ACCESS_TIME, expand=2, icon_size=25, disabled=True)
             start_dd.value = 'المغرب'
             start_dd.options = [
-                ft.dropdownm2.Option("العشاء"),
-                ft.dropdownm2.Option("المغرب")
+                ft.dropdown.Option("العشاء"),
+                ft.dropdown.Option("المغرب")
             ]
-            end_dd.icon = ft.IconButton(icon=ft.Icons.ACCESS_TIME, expand=2, icon_size=25, disabled=True)
             end_dd.value = 'الفجر'
             end_dd.options = [
-                ft.dropdownm2.Option("الفجر"), 
-                ft.dropdownm2.Option("الشروق")
+                ft.dropdown.Option("الفجر"), 
+                ft.dropdown.Option("الشروق")
             ]
 
-        elif time_line_mode == 'manual': # MANUAL TIMELINE
+        elif timeline_mode == 'manual': # MANUAL TIMELINE
             paker_dlg.title = ft.Text('أدخل توقيت الليل', text_align='center', rtl=True)
-
-            start_dd.icon = ft.IconButton(icon=ft.Icons.ACCESS_TIME, expand=2, icon_size=25)
-            end_dd.icon = ft.IconButton(icon=ft.Icons.ACCESS_TIME, expand=2, icon_size=25)
+            start_dd.disabled = True
+            end_dd.disabled = True
 
         paker_dlg.content = ft.Column(
-            height=200,
+            height=175,
             rtl=True,
             controls=[
                 ft.Text('بداية الليل'),
-                start_dd,
+                ft.Row(
+                    vertical_alignment=ft.CrossAxisAlignment.CENTER,
+                    controls=[
+                        ft.IconButton(
+                            icon=ft.Icons.ACCESS_TIME,
+                            on_click=pick_time_for(start_dd),
+                            disabled=True if timeline_mode == 'auto' else False,
+                        ),
+                        start_dd
+                    ],
+                ),
                 ft.Text('نهاية الليل'),
-                end_dd
+                ft.Row(
+                    vertical_alignment=ft.CrossAxisAlignment.CENTER,
+                    controls=[
+                        ft.IconButton(
+                            icon=ft.Icons.ACCESS_TIME,
+                            on_click=pick_time_for(end_dd),
+                            disabled=True if timeline_mode == 'auto' else False
+                        ),
+                        end_dd
+                    ],
+                ),
             ],
         )
-            
+           
+        basket.mode = timeline_mode
+
         view.controls.append(paker_dlg)
         paker_dlg.open = True
-        page.update()
+        validate('e')
 
 
-    # CONNECT CONTROLS WITH EVENTS
-    auto_btn.on_click = lambda e: open_paker_dlg(time_line_mode='outo')
-    maniual_btn.on_click = lambda e: open_paker_dlg(time_line_mode='manual')
+    ### CONNECT CONTROLS WITH EVENTS ###
+    auto_btn.on_click = lambda _: open_dlg_paker(timeline_mode='auto')
+    maniual_btn.on_click = lambda _: open_dlg_paker(timeline_mode='manual')
+    start_dd.on_change = validate
+    end_dd.on_change = validate
+    confirm_btn.on_click = push_to_timeline
+    
 
-
-    # ADD CONTROLS TO VIEW     
+    ### ADD CONTROLS TO VIEW ###
     view.controls = [
         ft.Row(
             controls=[willcome_label],
@@ -187,13 +285,14 @@ def home(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         )
     ]   
  
-    # RETURN VIEW TO PAGE
+    ### RETURN VIEW TO PAGE ###
     return view
 
-# Tist
-def main(page: ft.Page):
-    page.title = "Test View"
-    v = home(page, Params({}), Basket())
-    page.views.append(v)
-    page.go(v.route)
-ft.app(target=main)
+
+# TIST HOME PAGE
+# def main(page: ft.Page):
+#     page.title = "Test View"
+#     v = home(page, Params({}), Basket())
+#     page.views.append(v)
+#     page.go(v.route)
+# ft.app(target=main)
