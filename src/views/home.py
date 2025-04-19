@@ -1,9 +1,8 @@
 import flet as ft
 from flet_route import Params, Basket
-from os import chdir, path
+from pathlib import Path
 
-# Change cwd to -> fwd
-chdir(path.dirname(path.abspath(__file__)))
+BASE_DIR = Path(__file__).resolve().parent
 
 def home(page: ft.Page, params: Params, basket: Basket) -> ft.View:
 
@@ -13,7 +12,7 @@ def home(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         bgcolor = ft.Colors.TRANSPARENT,
         decoration = ft.BoxDecoration(
             image=ft.DecorationImage(
-                src='../assets/images/#FF052E4E.png',
+                src=f'{BASE_DIR.parent}/assets/images/app_cover.png',
                 fit=ft.ImageFit.COVER
             )
         )
@@ -226,7 +225,7 @@ def home(page: ft.Page, params: Params, basket: Basket) -> ft.View:
             end_dd.disabled = True
 
         paker_dlg.content = ft.Column(
-            height=175,
+            height=160,
             rtl=True,
             controls=[
                 ft.Text('بداية الليل'),

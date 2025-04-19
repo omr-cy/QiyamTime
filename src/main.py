@@ -2,7 +2,7 @@ import flet as ft
 from flet_route import Routing, path
 from views import home
 from views import timeline
-# from os import path
+
 
 def main(page: ft.Page) -> None:
     page.title = 'وقت القيام'
@@ -10,7 +10,7 @@ def main(page: ft.Page) -> None:
     page.bgcolor = ft.Colors.TRANSPARENT
     page.decoration = ft.BoxDecoration(
         image=ft.DecorationImage(
-            src='/images/#FF052E4E.png',
+            src='/images/app_cover.png',
             fit=ft.ImageFit.COVER
         )
     )

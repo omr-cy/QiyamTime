@@ -1,21 +1,20 @@
 [project]
-name = "قيام الأنبياء"
-version = "0.1.0"
-description = "هذا تطبيق لحساب الوقت التقريبي لنصف الليل وثلثله وسدسه."
+name = "وقت القيام"
+version = "1.0"
+
+description = "هذاتطبيق لحساب الوقت التقريبي لنصف الليل وثلثله وسدسه."
 readme = "README.md"
-requires-python = ">=3.9"
+
 authors = [{ name = "Omr Ashrf", email = "omr.ashrf.prog@gamil.com" }]
+
+requires-python = ">=3.9"
 dependencies = [
-  "flet==0.27.4", 
-  "lxml==5.3.0", 
-  "beautifulsoup4==4.10.0", 
-  "httpx[http2]", 
-  "fake-useragent",
+  "flet==0.27.4",
 ]
 
 [tool.flet]
 org = "com.mycompany"
-product = "قيام الأنبياء"
+product = "وقت القيام"
 company = "mycompany"
 copyright = "Copyright (C) 2025 by omrAshrf"
 
@@ -24,11 +23,6 @@ app.module = "main" # --module-name
 app.path = "src" # python_app_path
 
 permissions = ["internet"] # --permissions
-
-
-[tool.flet.app]
-path = "src"
-
 
 [tool.flet.android]
 split_per_abi = true
