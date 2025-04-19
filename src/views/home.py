@@ -225,7 +225,8 @@ def home(page: ft.Page, params: Params, basket: Basket) -> ft.View:
             end_dd.disabled = True
 
         paker_dlg.content = ft.Column(
-            height=160,
+            # expand=True, # Need more learn to edit
+            height=210,
             rtl=True,
             controls=[
                 ft.Text('بداية الليل'),

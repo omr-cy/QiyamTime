@@ -5,12 +5,15 @@ version = "1.0"
 description = "هذاتطبيق لحساب الوقت التقريبي لنصف الليل وثلثله وسدسه."
 readme = "README.md"
 
-authors = [{ name = "Omr Ashrf", email = "omr.ashrf.prog@gamil.com" }]
-
 requires-python = ">=3.9"
 dependencies = [
   "flet==0.27.4",
+  "flet-route==0.3.3",
+  "geocoder==1.38.1",
+  "requests==2.28.1",
 ]
+
+authors = [{ name = "Omr Ashrf", email = "omr.ashrf.prog@gamil.com" }]
 
 [tool.flet]
 org = "com.mycompany"
@@ -18,11 +21,12 @@ product = "وقت القيام"
 company = "mycompany"
 copyright = "Copyright (C) 2025 by omrAshrf"
 
-assets = ["src/assets"]
-app.module = "main" # --module-name
+# assets = ["src/assets"]
+app.module = "main" #--module-name
 app.path = "src" # python_app_path
+app.exclude = ["uiux"] #--exclude 
 
-permissions = ["internet"] # --permissions
+permissions = ["internet"] #--permissions
 
 [tool.flet.android]
 split_per_abi = true

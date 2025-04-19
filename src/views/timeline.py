@@ -55,9 +55,13 @@ def timeline(page: ft.Page, params: Params, basket: Basket) -> ft.View:
     def show_realtime():
         # CHECK AND UPDATE TIME EVERY 1 SECOND 
         while True:
-            realtime_label.value = realtime_now()
-            realtime_label.update()
-            sleep(1)
+            try:
+                realtime_label.value = realtime_now()
+                realtime_label.update()
+                sleep(1)
+            except AssertionError as err:
+                print(f"{err} >> Maybe The View Is Cloused")
+                break
 
     def build():
         sleep(1)
