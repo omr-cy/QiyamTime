@@ -1,6 +1,8 @@
 import flet as ft
 from flet_route import Params, Basket
 from pathlib import Path
+import json
+from threading import Thread
 
 BASE_DIR = Path(__file__).resolve().parent
 
@@ -159,17 +161,27 @@ def home(page: ft.Page, params: Params, basket: Basket) -> ft.View:
             confirm_btn.disabled = True
         page.update()
 
+    def save_histroy():
+        with open(f'{BASE_DIR.parent}/storage/logs/time_selection.json', 'w', encoding="utf-8") as jf:
+            selected_time = {'start_night': start_dd.value, 'end_night': end_dd.value}
+            json.dump({'selected_time': selected_time}, jf, ensure_ascii=False, indent=4)
+
+        with open(f'{BASE_DIR.parent}/storage/logs/log_history.json', 'w', encoding="utf-8") as jf:
+            json.dump({'last_log': '/timeline'}, jf, ensure_ascii=False, indent=4)
+
+        print("Log history saved")
+
     def push_to_timeline(e: ft.ControlEvent): ## basket way ##
         view.controls.remove(paker_dlg) # To Escbae the dlg showing error in timeline page
-        view.clean() 
-        page.clean()
-        page.update()
+        view.update()
+
+        save_histroy_thread = Thread(target=save_histroy)
+        save_histroy_thread.start()
 
         basket.start_night = start_dd.value
         basket.end_night = end_dd.value
 
         page.go("/timeline")
-        print(f"Sending -> {start_dd.value} , {end_dd.value}")
         
     def pick_time_for(dropdown: ft.Dropdown):
         page.overlay.append(time_picker)
@@ -191,9 +203,8 @@ def home(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         return _show_picker
 
     def clear_dd():
-        # paker_dlg.content = None
-        start_dd.value = None #if start_dd.value in [':'] else start_dd.value
-        end_dd.value = None #if start_dd.value in [':'] else start_dd.value
+        start_dd.value = None 
+        end_dd.value = None
         start_dd.hint_text = '--:--'
         end_dd.hint_text = '--:--'
         start_dd.options = None
