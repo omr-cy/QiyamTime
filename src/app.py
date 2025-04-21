@@ -1,5 +1,6 @@
 import json
 import requests
+# from re import match
 from geocoder import ip
 from pathlib import Path
 from threading import Thread
@@ -12,21 +13,27 @@ month = datetime.now().strftime("%m")
 today = datetime.now().strftime("%d %b %Y")
 tomorrow = datetime.now() + timedelta(days=1)
 
+# pattern = "^[0-9]{1,2}:[0-5][0-9](:[0-5][0-9])?$" # for manual mode -> RE WAY
+# def is_time(time_str):
+#     return bool(match(pattern, time_str))
 
 def get_prayer_times():
-    ip_location = ip('me')
-    lat, lng = ip_location.latlng
-    city = ip_location.city
+    try:
+        ip_location = ip('me')
+        lat, lng = ip_location.latlng
+        city = ip_location.city
 
-    # جلب أوقات الصلاة باستخدام الإحداثيات
-    url = f"https://api.aladhan.com/v1/calendar?latitude={lat}&longitude={lng}&month={month}&year={year}&method=4"
-    prayer_data = requests.get(url).json()
-    prayer_data['city'] = city  # add city name
+        # جلب أوقات الصلاة باستخدام الإحداثيات
+        url = f"https://api.aladhan.com/v1/calendar?latitude={lat}&longitude={lng}&month={month}&year={year}&method=4"
+        prayer_data = requests.get(url).json()
+        prayer_data['city'] = city  # add city name
 
-    with open(f"{BASE_DIR}/storage/data/prayer_data({month}-{year}).json", "w", encoding="utf-8") as json_file:
-        json.dump(prayer_data, json_file, ensure_ascii=False, indent=4)
-    print(f"Saved as prayer_data({month}-{year}).json")   
+        with open(f"{BASE_DIR}/storage/data/prayer_data({month}-{year}).json", "w", encoding="utf-8") as json_file:
+            json.dump(prayer_data, json_file, ensure_ascii=False, indent=4)
+        print(f"Saved as prayer_data({month}-{year}).json") 
 
+    except Exception as err:
+        print(err)
 
 def fetch_night_times(prayer_data, start_time="Isha", end_time="Fajr"):
     city = prayer_data["city"]
@@ -51,7 +58,7 @@ def conv_time_12h(time_str):
             continue
     return f"Time Format Erro -> {time_str}"
 
-def qyam_calc(start_night, end_night, city='-----'):
+def qyam_calc(start_night, end_night, city='--------'):
     start_night_dt = datetime.strptime(start_night, "%H:%M")
     end_night_dt = datetime.strptime(end_night, "%H:%M") + timedelta(days=1)  # إضافة يوم للشروق
 
@@ -74,32 +81,23 @@ def qyam_calc(start_night, end_night, city='-----'):
     return calculation
     
     
-def qyam_times(start, end, mode='auto'):
-    if start == 'المغرب':
-        start = 'Sunset'
-    elif start == 'العشاء':
-        start = 'Isha'
+def qyam_times(start, end):
+    auto_times = {
+        'المغرب':'Sunset', 
+        'العشاء' : 'Isha', 
+        'الشروق':'Sunrise',  
+        'الفجر': 'Fajr'
+    }
 
-    if end == 'الشروق':
-        end = 'Sunrise'
-    elif end == 'الفجر':
-        end = 'Fajr'
-    else:
-        pass
-
-
-    try: # علشان لو المستخدم غير اللوكيشن يتم اعادة بناء ملف اوقات الصلاوات على اللوكيشن الجديد
-        thread = Thread(target=get_prayer_times)
-        thread.start() #  وضعتها في ثريد علشان متأثرش على باقي التطبيق 
-    except:
-        pass
-    
-    if mode == 'auto': # لو سيتم حساب الوقت تلقائي
-
-        start_time = start.capitalize()
-        end_time = end.capitalize()
+    thread = Thread(target=get_prayer_times)
+    thread.start() #  وضعتها في ثريد علشان متأثرش على باقي التطبيق 
+   
+    if start in auto_times and end in auto_times: # لو سيتم حساب الوقت تلقائي
+        start_time = auto_times[start]
+        end_time = auto_times[end]
         
         if Path(f"{BASE_DIR}/storage/data/prayer_data({month}-{year}).json").exists():
+            # IF PRAYER DATA EXISTS WILL GET THE DATA FROM IT
             with open(f"{BASE_DIR}/storage/data/prayer_data({month}-{year}).json", "r", encoding="utf-8") as json_file:
                 prayer_data = json.load(json_file)
                 
@@ -112,19 +110,33 @@ def qyam_times(start, end, mode='auto'):
                 )
                 
         else:
-            get_prayer_times()
-            with open(f"{BASE_DIR}/storage/data/prayer_data({month}-{year}).json", "r", encoding="utf-8") as json_file:
-                prayer_data = json.load(json_file)
-                
-                return qyam_calc(
-                    *fetch_night_times(
-                        prayer_data,
-                        start_time=start_time,
-                        end_time=end_time
+            # IF PRAYER DATA IS NOT EXISTS WILL RUN get_prayer_times TO GET THE DATA
+            try:
+                get_prayer_times()
+
+                with open(f"{BASE_DIR}/storage/data/prayer_data({month}-{year}).json", "r", encoding="utf-8") as json_file:
+                    prayer_data = json.load(json_file)
+                    return qyam_calc(
+                        *fetch_night_times(
+                            prayer_data,
+                            start_time=start_time,
+                            end_time=end_time
+                        )
                     )
-                )
-        
-    elif mode == 'manual': # لو سيتم حساب الوقت يدوي
+
+            except Exception as err:
+                print (err)
+                return {
+                    'city': "حدثت مشكلة\nلا يجود انترنت أو تحتاج لتحديث موقعك",
+                    "allnight": "--:-- --",
+                    "start_night": "--:-- --",  
+                    "midnight": "--:-- --",
+                    "start_off_last_third": "--:-- --",
+                    "start_off_last_sixth": "--:-- --",
+                    "end_night": "--:-- --"
+                }
+
+    else: # لو سيتم حساب الوقت يدوي
         
         return qyam_calc(start, end)
 
@@ -134,7 +146,7 @@ def qyam_times(start, end, mode='auto'):
 # qyam_times("العشاء", "fajr")
 # qyam_times("sunset", "sunrise")
 # qyam_times("isha", "sunrise")
-# qyam_times("06:18", "4:0", mode='manual')
+# qyam_times("06:18", "4:0")
 
      
         

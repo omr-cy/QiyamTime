@@ -1,2 +1,2 @@
-from .home import home
-from .timeline import timeline
+from .selection_view import selection_view
+from .time_view import time_view

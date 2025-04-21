@@ -1,8 +1,11 @@
 import flet as ft
-from flet_route import Routing, path
-from views import home
-from views import timeline
+from flet_route import Routing, path, Params, Basket
+from views import selection_view
+from views import time_view
+from pathlib import Path
+import json
 
+BASE_DIR = Path(__file__).resolve().parent
 
 def main(page: ft.Page) -> None:
     page.title = 'وقت القيام'
@@ -16,13 +19,19 @@ def main(page: ft.Page) -> None:
     )
 
     app_routes = [
-        path(url='/', clear=True, view=home),
-        path(url='/timeline', clear=True, view=timeline)
+        path(url='/', clear=True, view=selection_view),
+        path(url='/time_view', clear=True, view=time_view),
     ]
 
     Routing(page=page, app_routes=app_routes)
 
-    page.go(page.route)
+    with open(f'{BASE_DIR}/storage/logs/log_history.json', 'r', encoding="utf-8") as jf:
+        history = json.load(jf)  
+
+        if history["last_log"] == "":
+            page.go(page.route)
+        else:
+            page.go(history["last_log"])
 
 if __name__ == "__main__":
     ft.app(target=main, assets_dir="assets", )

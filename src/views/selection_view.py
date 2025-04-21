@@ -6,7 +6,7 @@ from threading import Thread
 
 BASE_DIR = Path(__file__).resolve().parent
 
-def home(page: ft.Page, params: Params, basket: Basket) -> ft.View:
+def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
 
     view:ft.View = ft.View(
         '/',
@@ -27,7 +27,6 @@ def home(page: ft.Page, params: Params, basket: Basket) -> ft.View:
             rtl=True,
             size=25
         )
-
     auto_btn:ft.FilledTonalButton = ft.FilledTonalButton(
         # bgcolor = ft.Colors.with_opacity(color=ft.Colors.WHITE10, opacity=100),
         bgcolor=ft.Colors.WHITE10,
@@ -52,7 +51,6 @@ def home(page: ft.Page, params: Params, basket: Basket) -> ft.View:
             ],
         ),
     )
-        
     maniual_btn:ft.FilledTonalButton = ft.FilledTonalButton(
         bgcolor=ft.Colors.WHITE10,
         elevation=20,
@@ -76,7 +74,6 @@ def home(page: ft.Page, params: Params, basket: Basket) -> ft.View:
             ],
         ),
     )
-   
     # Satrt DropDown
     start_dd = ft.Dropdown( 
         expand=True,
@@ -89,7 +86,6 @@ def home(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         hint_text='--:--',
         # alignment=ft.CrossAxisAlignment.CENTER
     )
-
     # End DropDown
     end_dd = ft.Dropdown( 
         expand=True,
@@ -102,7 +98,6 @@ def home(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         hint_text='--:--',
         # alignment=ft.CrossAxisAlignment.CENTER
     )
-
     time_picker:ft.TimePicker = ft.TimePicker(
         confirm_text="موافق",
         error_invalid_text="الوقت غير صحيح",
@@ -111,7 +106,6 @@ def home(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         expand=False,
         # hour_label_text='--'
     )
-
     confirm_btn:fr.IconButton = ft.ElevatedButton(
         text='موافق',
         width=90,
@@ -123,9 +117,8 @@ def home(page: ft.Page, params: Params, basket: Basket) -> ft.View:
             shape=ft.ContinuousRectangleBorder(radius=30),
             # side=ft.BorderSide(2) # color='#182745'
         )
-        # on_click=lambda e: page.go(f"/timeline?start_night={start_dd.value}&end_night={end_dd.value}"), ## The URL way
+        # on_click=lambda e: page.go(f"/time_view?start_night={start_dd.value}&end_night={end_dd.value}"), ## The URL way
     )
-
     # Main Dialog
     paker_dlg: ft.AlertDialog = ft.AlertDialog(
         bgcolor='#1c2739',
@@ -151,7 +144,12 @@ def home(page: ft.Page, params: Params, basket: Basket) -> ft.View:
             confirm_btn
         ]
     )   
-
+    back_btn: ft.IconButton = ft.IconButton(
+        icon=ft.Icons.ARROW_BACK_ROUNDED,
+        disabled=True,
+        # rotate=""
+    )
+        
 
     ### SETUP THE EVENTS ###
     def validate(e: ft.ControlEvent):
@@ -167,21 +165,31 @@ def home(page: ft.Page, params: Params, basket: Basket) -> ft.View:
             json.dump({'selected_time': selected_time}, jf, ensure_ascii=False, indent=4)
 
         with open(f'{BASE_DIR.parent}/storage/logs/log_history.json', 'w', encoding="utf-8") as jf:
-            json.dump({'last_log': '/timeline'}, jf, ensure_ascii=False, indent=4)
+            json.dump({'last_log': '/time_view'}, jf, ensure_ascii=False, indent=4)
+        
+    def check_logs():
+        def async_check():
+            with open(f'{BASE_DIR.parent}/storage/logs/log_history.json', 'r', encoding="utf-8") as jf:
+                log_history = json.load(jf)
+                if log_history["last_log"] != '':
+                    return False # TO DEACTIVATE THE DISABLED
+                else:
+                    return True # TO KEEP THE DISABLED
+        check_logs_thread = Thread(target=async_check)
+        check_logs_thread.start()
 
-        print("Log history saved")
-
-    def push_to_timeline(e: ft.ControlEvent): ## basket way ##
-        view.controls.remove(paker_dlg) # To Escbae the dlg showing error in timeline page
+    def push_to_time_view(e: ft.ControlEvent): ## basket way ##
+        view.controls.remove(paker_dlg) # To Escbae the dlg showing error in time_view page
         view.update()
 
         save_histroy_thread = Thread(target=save_histroy)
         save_histroy_thread.start()
 
+        # BASKET WAY
         basket.start_night = start_dd.value
         basket.end_night = end_dd.value
 
-        page.go("/timeline")
+        page.go(f"/time_view")
         
     def pick_time_for(dropdown: ft.Dropdown):
         page.overlay.append(time_picker)
@@ -211,10 +219,10 @@ def home(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         end_dd.options = None
         validate('e')
 
-    def open_dlg_paker(timeline_mode): # حل حلو اني اعمل فانكشن تهندل نتايج العنصر لو كان هيبقى منه نسخ كتير
+    def open_dlg_paker(mode): # حل حلو اني اعمل فانكشن تهندل نتايج العنصر لو كان هيبقى منه نسخ كتير
         clear_dd()
 
-        if timeline_mode == 'auto': # AUTO TIMELINE
+        if mode == 'auto': # AUTO TIME
             paker_dlg.title = ft.Text('أختر توقيت الليل', text_align='center', rtl=True)
             start_dd.disabled = False
             end_dd.disabled = False
@@ -230,7 +238,7 @@ def home(page: ft.Page, params: Params, basket: Basket) -> ft.View:
                 ft.dropdown.Option("الشروق")
             ]
 
-        elif timeline_mode == 'manual': # MANUAL TIMELINE
+        elif mode == 'manual': # MANUAL TIME
             paker_dlg.title = ft.Text('أدخل توقيت الليل', text_align='center', rtl=True)
             start_dd.disabled = True
             end_dd.disabled = True
@@ -247,7 +255,7 @@ def home(page: ft.Page, params: Params, basket: Basket) -> ft.View:
                         ft.IconButton(
                             icon=ft.Icons.ACCESS_TIME,
                             on_click=pick_time_for(start_dd),
-                            disabled=True if timeline_mode == 'auto' else False,
+                            disabled=True if mode == 'auto' else False,
                         ),
                         start_dd
                     ],
@@ -259,7 +267,7 @@ def home(page: ft.Page, params: Params, basket: Basket) -> ft.View:
                         ft.IconButton(
                             icon=ft.Icons.ACCESS_TIME,
                             on_click=pick_time_for(end_dd),
-                            disabled=True if timeline_mode == 'auto' else False
+                            disabled=True if mode == 'auto' else False
                         ),
                         end_dd
                     ],
@@ -267,20 +275,20 @@ def home(page: ft.Page, params: Params, basket: Basket) -> ft.View:
             ],
         )
            
-        basket.mode = timeline_mode
-
         view.controls.append(paker_dlg)
         paker_dlg.open = True
         validate('e')
 
 
     ### CONNECT CONTROLS WITH EVENTS ###
-    auto_btn.on_click = lambda _: open_dlg_paker(timeline_mode='auto')
-    maniual_btn.on_click = lambda _: open_dlg_paker(timeline_mode='manual')
+    auto_btn.on_click = lambda _: open_dlg_paker(mode='auto')
+    maniual_btn.on_click = lambda _: open_dlg_paker(mode='manual')
     start_dd.on_change = validate
     end_dd.on_change = validate
-    confirm_btn.on_click = push_to_timeline
-    
+    confirm_btn.on_click = push_to_time_view
+    back_btn.disabled = check_logs()
+    back_btn.on_click = lambda e: page.go(f"/time_view")
+
 
     ### ADD CONTROLS TO VIEW ###
     view.controls = [
@@ -295,15 +303,24 @@ def home(page: ft.Page, params: Params, basket: Basket) -> ft.View:
             spacing=10,
         )
     ]   
- 
+    view.bottom_appbar = ft.BottomAppBar(
+        bgcolor='#0a283f',
+        shape=ft.NotchShape.CIRCULAR,
+        height=60,
+        content=ft.Row(
+            alignment='center',
+            controls=[back_btn]
+        ),
+    )
+
     ### RETURN VIEW TO PAGE ###
     return view
 
 
-# TIST HOME PAGE
+# TIST SELECTION_VIEW PAGE
 # def main(page: ft.Page):
 #     page.title = "Test View"
-#     v = home(page, Params({}), Basket())
+#     v = selection_view(page, Params({}), Basket())
 #     page.views.append(v)
 #     page.go(v.route)
 # ft.app(target=main)
