@@ -2,7 +2,7 @@
 name = "وقت القيام"
 version = "1.0"
 
-description = "هذاتطبيق لحساب الوقت التقريبي لنصف الليل وثلثله وسدسه."
+description = "تطبيق لتنظيم وقت قيام الليل تلقائياً أو يدوياً مع عرض بصري. | App to Organize Qiyam time automatically or manually with a visual view."
 readme = "README.md"
 
 requires-python = ">=3.9"
