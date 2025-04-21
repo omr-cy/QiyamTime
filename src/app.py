@@ -128,12 +128,12 @@ def qyam_times(start, end):
                 print (err)
                 return {
                     'city': "حدثت مشكلة\nلا يجود انترنت أو تحتاج لتحديث موقعك",
-                    "allnight": "--:-- --",
-                    "start_night": "--:-- --",  
-                    "midnight": "--:-- --",
-                    "start_off_last_third": "--:-- --",
-                    "start_off_last_sixth": "--:-- --",
-                    "end_night": "--:-- --"
+                    "allnight": "00:00:00",
+                    "start_night": "00:00:00",  
+                    "midnight": "00:00:00",  
+                    "start_off_last_third": "00:00:00",  
+                    "start_off_last_sixth": "00:00:00",  
+                    "end_night": "00:00:00",  
                 }
 
     else: # لو سيتم حساب الوقت يدوي
@@ -141,14 +141,9 @@ def qyam_times(start, end):
         return qyam_calc(start, end)
 
 
-# Tists
+# TIST APP
 # qyam_times("المغرب", "الشروق")
 # qyam_times("العشاء", "fajr")
 # qyam_times("sunset", "sunrise")
 # qyam_times("isha", "sunrise")
 # qyam_times("06:18", "4:0")
-
-     
-        
-        
-        

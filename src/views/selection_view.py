@@ -19,7 +19,7 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
             )
         )
     )
-
+    
     ### SETUP CONTROLS | تهيئة عناصر التطبيق ###
     willcome_label:ft.Text = ft.Text(
             value='مرحباً بك في تطبيق \nوقت القيام',
@@ -110,6 +110,7 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         text='موافق',
         width=90,
         height=50,
+        expand=True, # NOT WARKEING IDONT KNOW WAY??
         elevation=20,
         bgcolor='#142F66',
         disabled=True,
@@ -121,15 +122,18 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
     )
     # Main Dialog
     paker_dlg: ft.AlertDialog = ft.AlertDialog(
-        bgcolor='#1c2739',
+        # bgcolor='#002644', # 
+        bgcolor='#E3002644',
         actions_alignment='center',
         action_button_padding=5,
         content_padding=10,
+        shape=ft.ContinuousRectangleBorder(radius=30),
         actions=[
             ft.ElevatedButton(
                 text='إلغاء',
                 width=90,
                 height=50,
+                expand=True, # NOT WARKEING IDONT KNOW WAY??
                 elevation=20,
                 bgcolor='#111B2D',
                 style=ft.ButtonStyle(

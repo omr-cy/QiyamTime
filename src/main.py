@@ -11,6 +11,7 @@ def main(page: ft.Page) -> None:
     page.title = 'وقت القيام'
     page.horizontal_alignment = 'center'
     page.bgcolor = ft.Colors.TRANSPARENT
+    page.theme_mode = ft.ThemeMode.DARK
     page.decoration = ft.BoxDecoration(
         image=ft.DecorationImage(
             src='/images/app_cover.png',
