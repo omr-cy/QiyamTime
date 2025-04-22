@@ -1,5 +1,5 @@
 [project]
-name = "وقت القيام"
+name = "qyam_time" # MUST BE AN ASCI LATTERS AND EN
 version = "1.0"
 
 description = "تطبيق لتنظيم وقت قيام الليل تلقائياً أو يدوياً مع عرض بصري. | App to Organize Qiyam time automatically or manually with a visual view."
@@ -16,20 +16,24 @@ dependencies = [
 authors = [{ name = "Omr Ashrf", email = "omr.ashrf.prog@gamil.com" }]
 
 [tool.flet]
-org = "com.mycompany"
-product = "وقت القيام"
-company = "mycompany"
+product = "qyam_time"
 copyright = "Copyright (C) 2025 by omrAshrf"
+org = "nf.free.omrashrf"
+company = "nf.free.omrashrf.qyamtime" # MUST BE LIKE "com.mycompany.qyamtime"
 
 # assets = ["src/assets"]
 app.module = "main" #--module-name
 app.path = "src" # python_app_path
-app.exclude = ["uiux"] #--exclude 
+# app.exclude = ["uiux"] #--exclude 
 
 permissions = ["internet"] #--permissions
 
 [tool.flet.android]
 split_per_abi = true
+
+# IF YOU HAVE ANY ERROR WITH BULID TRY -> flet build apk --verbose
+
+
 
 
 

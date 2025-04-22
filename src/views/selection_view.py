@@ -82,8 +82,8 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         bgcolor='#1c2739',
         border_radius=15,
         border_width=2,
-        # border_color='#182745',
         hint_text='--:--',
+        # border_color='#182745',
         # alignment=ft.CrossAxisAlignment.CENTER
     )
     # End DropDown
@@ -94,8 +94,8 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         bgcolor='#1c2739',
         border_radius=15,
         border_width=2,
-        # border_color='#182745',
         hint_text='--:--',
+        # border_color='#182745',
         # alignment=ft.CrossAxisAlignment.CENTER
     )
     time_picker:ft.TimePicker = ft.TimePicker(
@@ -126,7 +126,7 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         bgcolor='#E3002644',
         actions_alignment='center',
         action_button_padding=5,
-        content_padding=10,
+        content_padding=5,
         shape=ft.ContinuousRectangleBorder(radius=30),
         actions=[
             ft.ElevatedButton(
@@ -183,8 +183,10 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         check_logs_thread.start()
 
     def push_to_time_view(e: ft.ControlEvent): ## basket way ##
-        view.controls.remove(paker_dlg) # To Escbae the dlg showing error in time_view page
-        view.update()
+
+        # view.controls.remove(paker_dlg) # To Escbae the dlg showing error in time_view page
+        paker_dlg.open = False
+        time_picker.open = False
 
         save_histroy_thread = Thread(target=save_histroy)
         save_histroy_thread.start()
@@ -192,7 +194,6 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         # BASKET WAY
         basket.start_night = start_dd.value
         basket.end_night = end_dd.value
-
         page.go(f"/time_view")
         
     def pick_time_for(dropdown: ft.Dropdown):
@@ -249,7 +250,7 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
 
         paker_dlg.content = ft.Column(
             # expand=True, # Need more learn to edit
-            height=210,
+            height=180,
             rtl=True,
             controls=[
                 ft.Text('بداية الليل'),

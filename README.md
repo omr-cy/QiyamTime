@@ -37,10 +37,10 @@
 ## لقطات شاشة | Screenshots
 
 ### الواجهة الرئيسية:
-![Main Screen](uiux/screenshots/main_screen.png)
+![Main Screen](uiux/screenshots/main_screen.jpg)
 
 ### اختيار الوضع:
-![Mode Selection](uiux/screenshots/mode_selection.png)
+![Mode Selection](uiux/screenshots/mode_selection.jpg)
 
 ### شكل العرض
-![Time View](uiux/screenshots/time_view.png)
+![Time View](uiux/screenshots/time_view.jpg)

@@ -46,7 +46,7 @@ def time_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
 
     ### SETUP CONTROLS ###
     loading_progress:ft.ProgressBar = ft.ProgressBar(
-        width=300, 
+        width=300,
         color=ft.Colors.BLUE_ACCENT_400, 
         bgcolor="#eeeeee"
     )
@@ -92,7 +92,7 @@ def time_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
                 ),
                 ft.Column(
                     alignment='center',
-                    controls=[ft.IconButton(icon=ft.Icons.ACCESS_TIME,),]  
+                    controls=[ft.IconButton(icon=ft.Icons.ALARM_ADD,),]  
                 ),
                 ft.Column(
                     rtl=True,
@@ -104,9 +104,11 @@ def time_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         )
         
     def build():
-        sleep(1)
+        sleep(.5)
         if not result_queue.empty():
-            page.clean()
+            # page.clear() # DO NOT USE NEVER THIS WILL SHOW A BUG BETWEN PAGES
+            view.controls.remove(loading_progress)
+            # view.update()
             times = result_queue.get()
             view.controls = [
                 ft.Text(value=times['city'], size=17, text_align='center'),
@@ -118,7 +120,7 @@ def time_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
                 time_row(time=times['end_night'], lable='نهاية الليل'),
             ]
             page.update()
-            # run real time in other thread
+            # run real time in other thread # THIS MORE FASTER
             show_realtime_thread = Thread(target=show_realtime)
             show_realtime_thread.start()
         else:
@@ -144,14 +146,7 @@ def time_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
 
     ### ADD CONTROLS TO VIEW ###
     view.controls = [
-        ft.Column(
-            alignment='center',
-            horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-            expand=True,
-            controls=[
-                loading_progress
-            ],
-        )
+        loading_progress
     ]
     view.bottom_appbar = ft.BottomAppBar(
         bgcolor='#0a283f',
