@@ -18,13 +18,10 @@ def time_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         end_night = basket.end_night
     except:
         # THE OPEN FILES WAY
-        with open(f'{BASE_DIR.parent}/storage/logs/time_selection.json', 'r', encoding="utf-8") as jf:
-            time_selection = json.load(jf)
-            start_night = time_selection["selected_time"]["start_night"]
-            end_night = time_selection["selected_time"]["end_night"]
-    # THE PARAMS WAY
-    # start_night = params.get("start_night")
-    # end_night = params.get("end_night")
+        with open(f'{BASE_DIR.parent}/storage/logs/user_selections.json', 'r', encoding="utf-8") as jf:
+            user_selections = json.load(jf)
+            start_night = user_selections["last_selected_time"]["start_night"]
+            end_night = user_selections["last_selected_time"]["end_night"]
 
     result_queue = Queue()
     realtime_now = lambda :strftime("%I:%M:%S %p", localtime())
@@ -105,20 +102,26 @@ def time_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         
     def build():
         sleep(.5)
-        if not result_queue.empty():
+        if result_queue.empty() == False:
             # page.clear() # DO NOT USE NEVER THIS WILL SHOW A BUG BETWEN PAGES
             view.controls.remove(loading_progress)
-            # view.update()
             times = result_queue.get()
-            view.controls = [
-                ft.Text(value=times['city'], size=17, text_align='center'),
-                realtime_label,
-                time_row(time=times['start_night'], lable='بداية الليل'),
-                time_row(time=times['midnight'], lable='منتصف الليل'),
-                time_row(time=times['start_off_last_third'], lable='الثلث الآخر'),
-                time_row(time=times['start_off_last_sixth'], lable='السدس الآخر'),
-                time_row(time=times['end_night'], lable='نهاية الليل'),
-            ]
+            view.controls.append(
+                ft.Column(
+                    horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                    adaptive='center',
+                    expand=True,
+                    controls=[
+                        ft.Text(value=times['city'], size=17, text_align='center'),
+                        realtime_label,
+                        time_row(time=times['start_night'], lable='بداية الليل'),
+                        time_row(time=times['midnight'], lable='منتصف الليل'),
+                        time_row(time=times['start_off_last_third'], lable='الثلث الآخر'),
+                        time_row(time=times['start_off_last_sixth'], lable='السدس الآخر'),
+                        time_row(time=times['end_night'], lable='نهاية الليل'),
+                    ]
+                )
+            )
             page.update()
             # run real time in other thread # THIS MORE FASTER
             show_realtime_thread = Thread(target=show_realtime)
@@ -131,8 +134,7 @@ def time_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
             with open(f'{BASE_DIR.parent}/storage/logs/log_history.json', 'w', encoding="utf-8") as jf:
                 json.dump({'last_log': '/'}, jf, ensure_ascii=False, indent=4)
 
-        save_log_thread = Thread(target=save_log)
-        save_log_thread.start()
+        save_log()
         page.go('/')
 
 
@@ -143,11 +145,11 @@ def time_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
     bulid_thread = Thread(target=build)
     bulid_thread.start()
 
-
     ### ADD CONTROLS TO VIEW ###
-    view.controls = [
+    view.controls.append(
         loading_progress
-    ]
+    )
+    page.update() # TO HANDLE THIS ERR -> 'Text Control must be added to the page first'
     view.bottom_appbar = ft.BottomAppBar(
         bgcolor='#0a283f',
         shape=ft.NotchShape.CIRCULAR,
@@ -157,7 +159,7 @@ def time_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
             controls=[back_btn]
         ),
     )
-
+    page.update() 
 
     ### RETURN VIEW TO PAGE ###
     return view

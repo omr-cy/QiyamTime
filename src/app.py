@@ -89,8 +89,8 @@ def qyam_times(start, end):
         'الفجر': 'Fajr'
     }
 
-    thread = Thread(target=get_prayer_times)
-    thread.start() #  وضعتها في ثريد علشان متأثرش على باقي التطبيق 
+    # thread = Thread(target=get_prayer_times)
+    # thread.start() #  وضعتها في ثريد علشان متأثرش على باقي التطبيق 
    
     if start in auto_times and end in auto_times: # لو سيتم حساب الوقت تلقائي
         start_time = auto_times[start]

@@ -29,10 +29,12 @@ def main(page: ft.Page) -> None:
     with open(f'{BASE_DIR}/storage/logs/log_history.json', 'r', encoding="utf-8") as jf:
         history = json.load(jf)  
 
-        if history["last_log"] == "":
-            page.go(page.route)
-        else:
-            page.go(history["last_log"])
+    if history["last_log"] == "":
+        page.go(page.route)
+        
+    else:
+        page.go(history["last_log"])
+
 
 if __name__ == "__main__":
     ft.app(target=main, assets_dir="assets", )
