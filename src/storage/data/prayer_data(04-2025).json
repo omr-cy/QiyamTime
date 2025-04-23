@@ -62,8 +62,8 @@
                 }
             },
             "meta": {
-                "latitude": 30.0626,
-                "longitude": 31.2497,
+                "latitude": 30.0094,
+                "longitude": 31.2086,
                 "timezone": "Africa/Cairo",
                 "method": {
                     "id": 4,
@@ -99,9 +99,9 @@
                 "Sunrise": "05:43 (EET)",
                 "Dhuhr": "11:59 (EET)",
                 "Asr": "15:30 (EET)",
-                "Sunset": "18:14 (EET)",
-                "Maghrib": "18:14 (EET)",
-                "Isha": "19:44 (EET)",
+                "Sunset": "18:15 (EET)",
+                "Maghrib": "18:15 (EET)",
+                "Isha": "19:45 (EET)",
                 "Imsak": "04:10 (EET)",
                 "Midnight": "23:59 (EET)",
                 "Firstthird": "22:04 (EET)",
@@ -153,8 +153,8 @@
                 }
             },
             "meta": {
-                "latitude": 30.0626,
-                "longitude": 31.2497,
+                "latitude": 30.0094,
+                "longitude": 31.2086,
                 "timezone": "Africa/Cairo",
                 "method": {
                     "id": 4,
@@ -186,15 +186,15 @@
         },
         {
             "timings": {
-                "Fajr": "04:18 (EET)",
+                "Fajr": "04:19 (EET)",
                 "Sunrise": "05:42 (EET)",
                 "Dhuhr": "11:58 (EET)",
                 "Asr": "15:30 (EET)",
                 "Sunset": "18:15 (EET)",
                 "Maghrib": "18:15 (EET)",
                 "Isha": "19:45 (EET)",
-                "Imsak": "04:08 (EET)",
-                "Midnight": "23:58 (EET)",
+                "Imsak": "04:09 (EET)",
+                "Midnight": "23:59 (EET)",
                 "Firstthird": "22:04 (EET)",
                 "Lastthird": "01:53 (EET)"
             },
@@ -244,8 +244,8 @@
                 }
             },
             "meta": {
-                "latitude": 30.0626,
-                "longitude": 31.2497,
+                "latitude": 30.0094,
+                "longitude": 31.2086,
                 "timezone": "Africa/Cairo",
                 "method": {
                     "id": 4,
@@ -287,7 +287,7 @@
                 "Imsak": "04:07 (EET)",
                 "Midnight": "23:58 (EET)",
                 "Firstthird": "22:04 (EET)",
-                "Lastthird": "01:52 (EET)"
+                "Lastthird": "01:53 (EET)"
             },
             "date": {
                 "readable": "04 Apr 2025",
@@ -335,8 +335,8 @@
                 }
             },
             "meta": {
-                "latitude": 30.0626,
-                "longitude": 31.2497,
+                "latitude": 30.0094,
+                "longitude": 31.2086,
                 "timezone": "Africa/Cairo",
                 "method": {
                     "id": 4,
@@ -426,8 +426,8 @@
                 }
             },
             "meta": {
-                "latitude": 30.0626,
-                "longitude": 31.2497,
+                "latitude": 30.0094,
+                "longitude": 31.2086,
                 "timezone": "Africa/Cairo",
                 "method": {
                     "id": 4,
@@ -459,14 +459,14 @@
         },
         {
             "timings": {
-                "Fajr": "04:14 (EET)",
-                "Sunrise": "05:38 (EET)",
-                "Dhuhr": "11:57 (EET)",
+                "Fajr": "04:15 (EET)",
+                "Sunrise": "05:39 (EET)",
+                "Dhuhr": "11:58 (EET)",
                 "Asr": "15:30 (EET)",
                 "Sunset": "18:17 (EET)",
                 "Maghrib": "18:17 (EET)",
                 "Isha": "19:47 (EET)",
-                "Imsak": "04:04 (EET)",
+                "Imsak": "04:05 (EET)",
                 "Midnight": "23:58 (EET)",
                 "Firstthird": "22:04 (EET)",
                 "Lastthird": "01:51 (EET)"
@@ -517,8 +517,8 @@
                 }
             },
             "meta": {
-                "latitude": 30.0626,
-                "longitude": 31.2497,
+                "latitude": 30.0094,
+                "longitude": 31.2086,
                 "timezone": "Africa/Cairo",
                 "method": {
                     "id": 4,
@@ -554,9 +554,9 @@
                 "Sunrise": "05:37 (EET)",
                 "Dhuhr": "11:57 (EET)",
                 "Asr": "15:30 (EET)",
-                "Sunset": "18:17 (EET)",
-                "Maghrib": "18:17 (EET)",
-                "Isha": "19:47 (EET)",
+                "Sunset": "18:18 (EET)",
+                "Maghrib": "18:18 (EET)",
+                "Isha": "19:48 (EET)",
                 "Imsak": "04:03 (EET)",
                 "Midnight": "23:57 (EET)",
                 "Firstthird": "22:04 (EET)",
@@ -608,8 +608,8 @@
                 }
             },
             "meta": {
-                "latitude": 30.0626,
-                "longitude": 31.2497,
+                "latitude": 30.0094,
+                "longitude": 31.2086,
                 "timezone": "Africa/Cairo",
                 "method": {
                     "id": 4,
@@ -644,7 +644,7 @@
                 "Fajr": "04:12 (EET)",
                 "Sunrise": "05:36 (EET)",
                 "Dhuhr": "11:57 (EET)",
-                "Asr": "15:30 (EET)",
+                "Asr": "15:29 (EET)",
                 "Sunset": "18:18 (EET)",
                 "Maghrib": "18:18 (EET)",
                 "Isha": "19:48 (EET)",
@@ -699,8 +699,8 @@
                 }
             },
             "meta": {
-                "latitude": 30.0626,
-                "longitude": 31.2497,
+                "latitude": 30.0094,
+                "longitude": 31.2086,
                 "timezone": "Africa/Cairo",
                 "method": {
                     "id": 4,
@@ -732,17 +732,17 @@
         },
         {
             "timings": {
-                "Fajr": "04:10 (EET)",
+                "Fajr": "04:11 (EET)",
                 "Sunrise": "05:35 (EET)",
                 "Dhuhr": "11:57 (EET)",
-                "Asr": "15:30 (EET)",
+                "Asr": "15:29 (EET)",
                 "Sunset": "18:19 (EET)",
                 "Maghrib": "18:19 (EET)",
                 "Isha": "19:49 (EET)",
-                "Imsak": "04:00 (EET)",
+                "Imsak": "04:01 (EET)",
                 "Midnight": "23:57 (EET)",
                 "Firstthird": "22:04 (EET)",
-                "Lastthird": "01:49 (EET)"
+                "Lastthird": "01:50 (EET)"
             },
             "date": {
                 "readable": "09 Apr 2025",
@@ -790,8 +790,8 @@
                 }
             },
             "meta": {
-                "latitude": 30.0626,
-                "longitude": 31.2497,
+                "latitude": 30.0094,
+                "longitude": 31.2086,
                 "timezone": "Africa/Cairo",
                 "method": {
                     "id": 4,
@@ -826,12 +826,12 @@
                 "Fajr": "04:09 (EET)",
                 "Sunrise": "05:34 (EET)",
                 "Dhuhr": "11:56 (EET)",
-                "Asr": "15:30 (EET)",
+                "Asr": "15:29 (EET)",
                 "Sunset": "18:19 (EET)",
                 "Maghrib": "18:19 (EET)",
                 "Isha": "19:49 (EET)",
                 "Imsak": "03:59 (EET)",
-                "Midnight": "23:56 (EET)",
+                "Midnight": "23:57 (EET)",
                 "Firstthird": "22:04 (EET)",
                 "Lastthird": "01:49 (EET)"
             },
@@ -881,8 +881,8 @@
                 }
             },
             "meta": {
-                "latitude": 30.0626,
-                "longitude": 31.2497,
+                "latitude": 30.0094,
+                "longitude": 31.2086,
                 "timezone": "Africa/Cairo",
                 "method": {
                     "id": 4,
@@ -917,14 +917,14 @@
                 "Fajr": "04:08 (EET)",
                 "Sunrise": "05:33 (EET)",
                 "Dhuhr": "11:56 (EET)",
-                "Asr": "15:30 (EET)",
+                "Asr": "15:29 (EET)",
                 "Sunset": "18:20 (EET)",
                 "Maghrib": "18:20 (EET)",
                 "Isha": "19:50 (EET)",
                 "Imsak": "03:58 (EET)",
                 "Midnight": "23:56 (EET)",
                 "Firstthird": "22:04 (EET)",
-                "Lastthird": "01:48 (EET)"
+                "Lastthird": "01:49 (EET)"
             },
             "date": {
                 "readable": "11 Apr 2025",
@@ -972,8 +972,8 @@
                 }
             },
             "meta": {
-                "latitude": 30.0626,
-                "longitude": 31.2497,
+                "latitude": 30.0094,
+                "longitude": 31.2086,
                 "timezone": "Africa/Cairo",
                 "method": {
                     "id": 4,
@@ -1005,14 +1005,14 @@
         },
         {
             "timings": {
-                "Fajr": "04:06 (EET)",
-                "Sunrise": "05:31 (EET)",
+                "Fajr": "04:07 (EET)",
+                "Sunrise": "05:32 (EET)",
                 "Dhuhr": "11:56 (EET)",
-                "Asr": "15:30 (EET)",
-                "Sunset": "18:20 (EET)",
-                "Maghrib": "18:20 (EET)",
-                "Isha": "19:50 (EET)",
-                "Imsak": "03:56 (EET)",
+                "Asr": "15:29 (EET)",
+                "Sunset": "18:21 (EET)",
+                "Maghrib": "18:21 (EET)",
+                "Isha": "19:51 (EET)",
+                "Imsak": "03:57 (EET)",
                 "Midnight": "23:56 (EET)",
                 "Firstthird": "22:04 (EET)",
                 "Lastthird": "01:48 (EET)"
@@ -1063,8 +1063,8 @@
                 }
             },
             "meta": {
-                "latitude": 30.0626,
-                "longitude": 31.2497,
+                "latitude": 30.0094,
+                "longitude": 31.2086,
                 "timezone": "Africa/Cairo",
                 "method": {
                     "id": 4,
@@ -1097,8 +1097,8 @@
         {
             "timings": {
                 "Fajr": "04:05 (EET)",
-                "Sunrise": "05:30 (EET)",
-                "Dhuhr": "11:55 (EET)",
+                "Sunrise": "05:31 (EET)",
+                "Dhuhr": "11:56 (EET)",
                 "Asr": "15:29 (EET)",
                 "Sunset": "18:21 (EET)",
                 "Maghrib": "18:21 (EET)",
@@ -1154,8 +1154,8 @@
                 }
             },
             "meta": {
-                "latitude": 30.0626,
-                "longitude": 31.2497,
+                "latitude": 30.0094,
+                "longitude": 31.2086,
                 "timezone": "Africa/Cairo",
                 "method": {
                     "id": 4,
@@ -1195,7 +1195,7 @@
                 "Maghrib": "18:22 (EET)",
                 "Isha": "19:52 (EET)",
                 "Imsak": "03:54 (EET)",
-                "Midnight": "23:55 (EET)",
+                "Midnight": "23:56 (EET)",
                 "Firstthird": "22:04 (EET)",
                 "Lastthird": "01:47 (EET)"
             },
@@ -1245,8 +1245,8 @@
                 }
             },
             "meta": {
-                "latitude": 30.0626,
-                "longitude": 31.2497,
+                "latitude": 30.0094,
+                "longitude": 31.2086,
                 "timezone": "Africa/Cairo",
                 "method": {
                     "id": 4,
@@ -1278,14 +1278,14 @@
         },
         {
             "timings": {
-                "Fajr": "04:02 (EET)",
+                "Fajr": "04:03 (EET)",
                 "Sunrise": "05:28 (EET)",
                 "Dhuhr": "11:55 (EET)",
                 "Asr": "15:29 (EET)",
                 "Sunset": "18:22 (EET)",
                 "Maghrib": "18:22 (EET)",
                 "Isha": "19:52 (EET)",
-                "Imsak": "03:52 (EET)",
+                "Imsak": "03:53 (EET)",
                 "Midnight": "23:55 (EET)",
                 "Firstthird": "22:04 (EET)",
                 "Lastthird": "01:46 (EET)"
@@ -1336,8 +1336,8 @@
                 }
             },
             "meta": {
-                "latitude": 30.0626,
-                "longitude": 31.2497,
+                "latitude": 30.0094,
+                "longitude": 31.2086,
                 "timezone": "Africa/Cairo",
                 "method": {
                     "id": 4,
@@ -1427,8 +1427,8 @@
                 }
             },
             "meta": {
-                "latitude": 30.0626,
-                "longitude": 31.2497,
+                "latitude": 30.0094,
+                "longitude": 31.2086,
                 "timezone": "Africa/Cairo",
                 "method": {
                     "id": 4,
@@ -1469,7 +1469,7 @@
                 "Isha": "19:54 (EET)",
                 "Imsak": "03:50 (EET)",
                 "Midnight": "23:55 (EET)",
-                "Firstthird": "22:04 (EET)",
+                "Firstthird": "22:05 (EET)",
                 "Lastthird": "01:45 (EET)"
             },
             "date": {
@@ -1518,8 +1518,8 @@
                 }
             },
             "meta": {
-                "latitude": 30.0626,
-                "longitude": 31.2497,
+                "latitude": 30.0094,
+                "longitude": 31.2086,
                 "timezone": "Africa/Cairo",
                 "method": {
                     "id": 4,
@@ -1551,16 +1551,16 @@
         },
         {
             "timings": {
-                "Fajr": "03:58 (EET)",
+                "Fajr": "03:59 (EET)",
                 "Sunrise": "05:25 (EET)",
                 "Dhuhr": "11:54 (EET)",
                 "Asr": "15:29 (EET)",
                 "Sunset": "18:24 (EET)",
                 "Maghrib": "18:24 (EET)",
                 "Isha": "19:54 (EET)",
-                "Imsak": "03:48 (EET)",
+                "Imsak": "03:49 (EET)",
                 "Midnight": "23:55 (EET)",
-                "Firstthird": "22:04 (EET)",
+                "Firstthird": "22:05 (EET)",
                 "Lastthird": "01:45 (EET)"
             },
             "date": {
@@ -1609,8 +1609,8 @@
                 }
             },
             "meta": {
-                "latitude": 30.0626,
-                "longitude": 31.2497,
+                "latitude": 30.0094,
+                "longitude": 31.2086,
                 "timezone": "Africa/Cairo",
                 "method": {
                     "id": 4,
@@ -1651,7 +1651,7 @@
                 "Isha": "19:55 (EET)",
                 "Imsak": "03:47 (EET)",
                 "Midnight": "23:54 (EET)",
-                "Firstthird": "22:04 (EET)",
+                "Firstthird": "22:05 (EET)",
                 "Lastthird": "01:44 (EET)"
             },
             "date": {
@@ -1700,8 +1700,8 @@
                 }
             },
             "meta": {
-                "latitude": 30.0626,
-                "longitude": 31.2497,
+                "latitude": 30.0094,
+                "longitude": 31.2086,
                 "timezone": "Africa/Cairo",
                 "method": {
                     "id": 4,
@@ -1737,9 +1737,9 @@
                 "Sunrise": "05:23 (EET)",
                 "Dhuhr": "11:54 (EET)",
                 "Asr": "15:29 (EET)",
-                "Sunset": "18:25 (EET)",
-                "Maghrib": "18:25 (EET)",
-                "Isha": "19:55 (EET)",
+                "Sunset": "18:26 (EET)",
+                "Maghrib": "18:26 (EET)",
+                "Isha": "19:56 (EET)",
                 "Imsak": "03:46 (EET)",
                 "Midnight": "23:54 (EET)",
                 "Firstthird": "22:05 (EET)",
@@ -1791,8 +1791,8 @@
                 }
             },
             "meta": {
-                "latitude": 30.0626,
-                "longitude": 31.2497,
+                "latitude": 30.0094,
+                "longitude": 31.2086,
                 "timezone": "Africa/Cairo",
                 "method": {
                     "id": 4,
@@ -1882,8 +1882,8 @@
                 }
             },
             "meta": {
-                "latitude": 30.0626,
-                "longitude": 31.2497,
+                "latitude": 30.0094,
+                "longitude": 31.2086,
                 "timezone": "Africa/Cairo",
                 "method": {
                     "id": 4,
@@ -1915,14 +1915,14 @@
         },
         {
             "timings": {
-                "Fajr": "03:53 (EET)",
+                "Fajr": "03:54 (EET)",
                 "Sunrise": "05:21 (EET)",
-                "Dhuhr": "11:53 (EET)",
+                "Dhuhr": "11:54 (EET)",
                 "Asr": "15:29 (EET)",
                 "Sunset": "18:27 (EET)",
                 "Maghrib": "18:27 (EET)",
                 "Isha": "19:57 (EET)",
-                "Imsak": "03:43 (EET)",
+                "Imsak": "03:44 (EET)",
                 "Midnight": "23:54 (EET)",
                 "Firstthird": "22:05 (EET)",
                 "Lastthird": "01:43 (EET)"
@@ -1973,8 +1973,8 @@
                 }
             },
             "meta": {
-                "latitude": 30.0626,
-                "longitude": 31.2497,
+                "latitude": 30.0094,
+                "longitude": 31.2086,
                 "timezone": "Africa/Cairo",
                 "method": {
                     "id": 4,
@@ -2064,8 +2064,8 @@
                 }
             },
             "meta": {
-                "latitude": 30.0626,
-                "longitude": 31.2497,
+                "latitude": 30.0094,
+                "longitude": 31.2086,
                 "timezone": "Africa/Cairo",
                 "method": {
                     "id": 4,
@@ -2155,8 +2155,8 @@
                 }
             },
             "meta": {
-                "latitude": 30.0626,
-                "longitude": 31.2497,
+                "latitude": 30.0094,
+                "longitude": 31.2086,
                 "timezone": "Africa/Cairo",
                 "method": {
                     "id": 4,
@@ -2198,7 +2198,7 @@
                 "Imsak": "04:40 (EEST)",
                 "Midnight": "00:53 (EEST)",
                 "Firstthird": "23:05 (EEST)",
-                "Lastthird": "02:41 (EEST)"
+                "Lastthird": "02:42 (EEST)"
             },
             "date": {
                 "readable": "25 Apr 2025",
@@ -2246,8 +2246,8 @@
                 }
             },
             "meta": {
-                "latitude": 30.0626,
-                "longitude": 31.2497,
+                "latitude": 30.0094,
+                "longitude": 31.2086,
                 "timezone": "Africa/Cairo",
                 "method": {
                     "id": 4,
@@ -2279,14 +2279,14 @@
         },
         {
             "timings": {
-                "Fajr": "04:48 (EEST)",
+                "Fajr": "04:49 (EEST)",
                 "Sunrise": "06:17 (EEST)",
                 "Dhuhr": "12:53 (EEST)",
-                "Asr": "16:29 (EEST)",
+                "Asr": "16:28 (EEST)",
                 "Sunset": "19:29 (EEST)",
                 "Maghrib": "19:29 (EEST)",
                 "Isha": "20:59 (EEST)",
-                "Imsak": "04:38 (EEST)",
+                "Imsak": "04:39 (EEST)",
                 "Midnight": "00:53 (EEST)",
                 "Firstthird": "23:05 (EEST)",
                 "Lastthird": "02:41 (EEST)"
@@ -2337,8 +2337,8 @@
                 }
             },
             "meta": {
-                "latitude": 30.0626,
-                "longitude": 31.2497,
+                "latitude": 30.0094,
+                "longitude": 31.2086,
                 "timezone": "Africa/Cairo",
                 "method": {
                     "id": 4,
@@ -2373,14 +2373,14 @@
                 "Fajr": "04:47 (EEST)",
                 "Sunrise": "06:16 (EEST)",
                 "Dhuhr": "12:53 (EEST)",
-                "Asr": "16:29 (EEST)",
+                "Asr": "16:28 (EEST)",
                 "Sunset": "19:30 (EEST)",
                 "Maghrib": "19:30 (EEST)",
                 "Isha": "21:00 (EEST)",
                 "Imsak": "04:37 (EEST)",
                 "Midnight": "00:53 (EEST)",
                 "Firstthird": "23:05 (EEST)",
-                "Lastthird": "02:40 (EEST)"
+                "Lastthird": "02:41 (EEST)"
             },
             "date": {
                 "readable": "27 Apr 2025",
@@ -2428,8 +2428,8 @@
                 }
             },
             "meta": {
-                "latitude": 30.0626,
-                "longitude": 31.2497,
+                "latitude": 30.0094,
+                "longitude": 31.2086,
                 "timezone": "Africa/Cairo",
                 "method": {
                     "id": 4,
@@ -2463,8 +2463,8 @@
             "timings": {
                 "Fajr": "04:46 (EEST)",
                 "Sunrise": "06:15 (EEST)",
-                "Dhuhr": "12:52 (EEST)",
-                "Asr": "16:29 (EEST)",
+                "Dhuhr": "12:53 (EEST)",
+                "Asr": "16:28 (EEST)",
                 "Sunset": "19:31 (EEST)",
                 "Maghrib": "19:31 (EEST)",
                 "Isha": "21:01 (EEST)",
@@ -2519,8 +2519,8 @@
                 }
             },
             "meta": {
-                "latitude": 30.0626,
-                "longitude": 31.2497,
+                "latitude": 30.0094,
+                "longitude": 31.2086,
                 "timezone": "Africa/Cairo",
                 "method": {
                     "id": 4,
@@ -2554,14 +2554,14 @@
             "timings": {
                 "Fajr": "04:45 (EEST)",
                 "Sunrise": "06:14 (EEST)",
-                "Dhuhr": "12:52 (EEST)",
+                "Dhuhr": "12:53 (EEST)",
                 "Asr": "16:28 (EEST)",
                 "Sunset": "19:31 (EEST)",
                 "Maghrib": "19:31 (EEST)",
                 "Isha": "21:01 (EEST)",
                 "Imsak": "04:35 (EEST)",
                 "Midnight": "00:53 (EEST)",
-                "Firstthird": "23:05 (EEST)",
+                "Firstthird": "23:06 (EEST)",
                 "Lastthird": "02:40 (EEST)"
             },
             "date": {
@@ -2610,8 +2610,8 @@
                 }
             },
             "meta": {
-                "latitude": 30.0626,
-                "longitude": 31.2497,
+                "latitude": 30.0094,
+                "longitude": 31.2086,
                 "timezone": "Africa/Cairo",
                 "method": {
                     "id": 4,
@@ -2651,7 +2651,7 @@
                 "Maghrib": "19:32 (EEST)",
                 "Isha": "21:02 (EEST)",
                 "Imsak": "04:34 (EEST)",
-                "Midnight": "00:52 (EEST)",
+                "Midnight": "00:53 (EEST)",
                 "Firstthird": "23:06 (EEST)",
                 "Lastthird": "02:39 (EEST)"
             },
@@ -2701,8 +2701,8 @@
                 }
             },
             "meta": {
-                "latitude": 30.0626,
-                "longitude": 31.2497,
+                "latitude": 30.0094,
+                "longitude": 31.2086,
                 "timezone": "Africa/Cairo",
                 "method": {
                     "id": 4,
@@ -2733,5 +2733,5 @@
             }
         }
     ],
-    "city": "Cairo"
+    "city": "Giza"
 }

@@ -1,6 +1,5 @@
 import json
 import requests
-# from re import match
 from geocoder import ip
 from pathlib import Path
 from threading import Thread
@@ -12,10 +11,6 @@ year = datetime.now().strftime("%Y")
 month = datetime.now().strftime("%m")
 today = datetime.now().strftime("%d %b %Y")
 tomorrow = datetime.now() + timedelta(days=1)
-
-# pattern = "^[0-9]{1,2}:[0-5][0-9](:[0-5][0-9])?$" # for manual mode -> RE WAY
-# def is_time(time_str):
-#     return bool(match(pattern, time_str))
 
 def get_prayer_times():
     try:

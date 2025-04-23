@@ -1,7 +1,6 @@
 import flet as ft
 from flet_route import Routing, path, Params, Basket
-from views import selection_view
-from views import time_view
+from views import selection_view ,time_view
 from pathlib import Path
 import json
 
@@ -37,4 +36,4 @@ def main(page: ft.Page) -> None:
 
 
 if __name__ == "__main__":
-    ft.app(target=main, assets_dir="assets", )
+    ft.app(target=main, assets_dir="assets")

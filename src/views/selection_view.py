@@ -108,21 +108,37 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         minute_label_text='الدقيقه',
         hour_label_text='الساعه',
     )
-    confirm_btn:fr.TextButton = ft.TextButton(
+    confirm_btn:ft.TextButton = ft.TextButton(
         text='موافق',
         disabled=True,
+        style=ft.ButtonStyle(
+            text_style=ft.TextStyle(
+                color=ft.Colors.INDIGO, # NOT WOARKING _IDONT KNOW WAY_
+                size=15, 
+                weight=ft.FontWeight.BOLD, 
+                # bgcolor=ft.Colors.INDIGO_200, # _UGLY_
+            ),
+        ),
     )
     # Main Dialog
     paker_dlg: ft.AlertDialog = ft.AlertDialog(
-        # bgcolor='#002644', # 
-        bgcolor='#E3002644',
+        # bgcolor='#1a2f42', # OLD COLOR
+        bgcolor='#EC1A2F42', # NEW COLOR
         actions_alignment='center',
-        action_button_padding=15,
+        action_button_padding=30,
         content_padding=10,
         shape=ft.ContinuousRectangleBorder(radius=30),
         actions=[
             ft.TextButton(
                 text='إلغاء',
+                style=ft.ButtonStyle(
+                    text_style=ft.TextStyle(
+                        color=ft.Colors.INDIGO, 
+                        size=15, 
+                        weight=ft.FontWeight.BOLD, 
+                        # bgcolor=ft.Colors.INDIGO_200, # _UGLY_
+                    ),
+                ),
                 on_click=lambda e: (
                     setattr(paker_dlg, "open", False),
                     page.update()
@@ -139,10 +155,11 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
 
     ### SETUP THE EVENTS ###
     def validate_confirm_btn(e: ft.ControlEvent):
-        if start_dd.value != '00:00' or end_dd.value != '00:00':
-            confirm_btn.disabled = False
-        else:
+        if start_dd.value == '00:00' or end_dd.value == '00:00':
             confirm_btn.disabled = True
+        else:
+            confirm_btn.disabled = False
+
         page.update()
 
     def save_log(): # SAVE LOG HISTORY
@@ -178,8 +195,22 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
 
         # GOING TO THE TIME VIEW PAGE
         page.go(f"/time_view")
+
+    def save_time_from(dropdown: ft.Dropdown, tmode, tname):
+        def _handler(e: ft.ControlEvent):
+            with open(f'{BASE_DIR.parent}/storage/logs/user_selections.json', 'r', encoding="utf-8") as jf:
+                log_time = json.load(jf)
+
+            log_time[tmode][tname] = dropdown.value
+
+            with open(f'{BASE_DIR.parent}/storage/logs/user_selections.json', 'w', encoding="utf-8") as jf:
+                json.dump(log_time, jf, ensure_ascii=False, indent=4)
+
+            validate_confirm_btn(e)
+
+        return _handler
         
-    def pick_time_for(dropdown: ft.Dropdown):
+    def pick_time_for(dropdown: ft.Dropdown, tmode, tname):
         page.overlay.append(time_picker)
         def _show_picker(e):
             def on_time_selected(ev):
@@ -190,23 +221,14 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
                     dropdown.hint_text = selected_time
                     dropdown.value = selected_time
                     validate_confirm_btn('e')
-                    
+                    save_time_from(dropdown, tmode, tname)(ev)
+                    # lambda save_time_from(dropdown, tmode, tname)()
+
             time_picker.on_change = on_time_selected
             time_picker.open = True
             page.update()
 
         return _show_picker
-
-
-    def save_time_from(dropdown: ft.Dropdown, tmode, tname):
-        with open(f'{BASE_DIR.parent}/storage/logs/user_selections.json', 'r', encoding="utf-8") as jf:
-            log_time = json.load(jf)
-
-        log_time[tmode][tname] = dropdown.value
-
-        with open(f'{BASE_DIR.parent}/storage/logs/user_selections.json', 'w', encoding="utf-8") as jf:
-            json.dump(log_time, jf, ensure_ascii=False, indent=4)
-
 
     def open_dlg_paker(tmode): # حل حلو اني اعمل فانكشن تهندل نتايج العنصر لو كان هيبقى منه نسخ كتير
         with open(f'{BASE_DIR.parent}/storage/logs/user_selections.json', 'r', encoding="utf-8") as jf:
@@ -216,8 +238,8 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
             paker_dlg.title = ft.Text('أختر توقيت الليل', text_align='center', rtl=True) # TODO NEED TO PUT THIS TEXT "هئا الأختيار يحتاج الى انترنت في أول مرة وبعدها يحدث مرة كل شهر"
 
             # TO OPEN THE SELECT OPTION
-            start_dd.disabled = False
-            end_dd.disabled = False
+            start_dd.disabled = False  if log_time[tmode]["start_night"] != "00:00" else True
+            end_dd.disabled = False if log_time[tmode]["end_night"] != "00:00" else True
 
             # THE START DORPDOWN OPTIONS
             start_dd.value = log_time["auto_time"]["start_night"] # GETINNG THE VALUE FROM THE AUTO HISTORY LOGS
@@ -231,23 +253,32 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
                 ft.dropdown.Option("الفجر"), 
                 ft.dropdown.Option("الشروق"),
             ]
+            # start_dd.on_change = save_time_from(start_dd, tmode=tmode, tname='start_night')
+            # end_dd.on_change = save_time_from(end_dd, tmode=tmode, tname='end_night')
             
-        else: # MANUALY SELECTING TIME
+        elif tmode == 'manual_time': # MANUALY SELECTING TIME
             paker_dlg.title = ft.Text('أدخل توقيت الليل', text_align='center', rtl=True)
 
             # TO CLOSE THE SELECT OPTION
-            # start_dd.disabled = True
-            # end_dd.disabled = True
+            start_dd.disabled = True # if log_time[tmode]["start_night"] != "00:00" else False
+            end_dd.disabled = True # if log_time[tmode]["end_night"] != "00:00" else False
 
             # THE START DORPDOWN OPTIONS
+            start_dd.options = None
             start_dd.value = log_time["manual_time"]["start_night"] # GETINNG THE VALUE FROM THE AUTO HISTORY LOGS
-            # THE END DORPDOWN OPTIONS
-            end_dd.value = log_time["manual_time"]["end_night"] # GETINNG THE VALUE FROM THE AUTO HISTORY LOGS
+            start_dd.hint_text = log_time["manual_time"]["start_night"]
 
+            # THE END DORPDOWN OPTIONS
+            end_dd.options = None
+            end_dd.value = log_time["manual_time"]["end_night"] # GETINNG THE VALUE FROM THE AUTO HISTORY LOGS
+            end_dd.hint_text = log_time["manual_time"]["end_night"]
+
+        start_dd.on_change = save_time_from(start_dd, tmode=tmode, tname='start_night')
+        end_dd.on_change = save_time_from(end_dd, tmode=tmode, tname='end_night')
 
         paker_dlg.content = ft.Column(
             # expand=True, # Need more learn to edit
-            height=180,
+            height=200,
             rtl=True,
             scroll=True,
             controls=[
@@ -257,8 +288,8 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
                     controls=[
                         ft.IconButton(
                             icon=ft.Icons.ACCESS_TIME,
-                            on_click=pick_time_for(start_dd),
-                            disabled=True if tmode == 'auto' else False
+                            on_click=pick_time_for(start_dd, tmode, 'start_night'),
+                            disabled=True if tmode == 'auto_time' else False
                         ),
                         start_dd
                     ],
@@ -269,21 +300,19 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
                     controls=[
                         ft.IconButton(
                             icon=ft.Icons.ACCESS_TIME,
-                            on_click=pick_time_for(end_dd),
-                            disabled=True if tmode == 'auto' else False
+                            on_click=pick_time_for(end_dd, tmode, 'end_night'),
+                            disabled=True if tmode == 'auto_time' else False
                         ),
                         end_dd
                     ],
                 ),
             ],
         )
-        start_dd.on_change = lambda e: (validate_confirm_btn('e'),  save_time_from(start_dd, tmode=tmode, tname='start_night'))
-        end_dd.on_change = lambda e:  (validate_confirm_btn('e') , save_time_from(end_dd, tmode=tmode, tname='end_night'))
-
         view.controls.append(paker_dlg)
         paker_dlg.open = True
+        page.update() # NOT NEEDED CUSE THE VALIDATE WILL DO IT 
         validate_confirm_btn('e')
-        # page.update() # NOT NEEDED CUSE THE VALIDATE WILL DO IT 
+
 
     ### CONNECT CONTROLS WITH EVENTS ###
     auto_btn.on_click = lambda _: open_dlg_paker(tmode='auto_time')
@@ -307,7 +336,7 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
             expand=7,
             spacing=10,
         )
-    )  
+    )
     view.bottom_appbar = ft.BottomAppBar(
         bgcolor='#0a283f',
         shape=ft.NotchShape.CIRCULAR,
@@ -318,6 +347,7 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         ),
     )
     page.update()
+    # view.update() # DO NOT USE THIS IT WILL GIVE YOU BUG "AssertionError"
 
     ### RETURN VIEW TO PAGE ###
     return view

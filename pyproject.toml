@@ -31,6 +31,14 @@ permissions = ["internet"] #--permissions
 [tool.flet.android]
 split_per_abi = true
 
+[tool.flet.app.boot_screen]
+show = true
+message = "تحضير التطبيق لإطلاقه الأول…"
+
+[tool.flet.app.startup_screen]
+show = true
+message = "بدء تشغيل التطبيق… (لا تنسونا من صالح دعائكم)"
+
 # IF YOU HAVE ANY ERROR WITH BULID TRY -> flet build apk --verbose
 
 
