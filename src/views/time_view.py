@@ -13,15 +13,15 @@ import json
 def time_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
 
     try:
-        # THE BASKET WAY
-        start_night = basket.start_night
-        end_night = basket.end_night
-    except:
         # THE OPEN FILES WAY
         with open(f'{BASE_DIR.parent}/storage/logs/user_selections.json', 'r', encoding="utf-8") as jf:
             user_selections = json.load(jf)
             start_night = user_selections["last_selected_time"]["start_night"]
             end_night = user_selections["last_selected_time"]["end_night"]
+    except:
+        # THE BASKET WAY
+        start_night = basket.start_night
+        end_night = basket.end_night
 
     result_queue = Queue()
     realtime_now = lambda :strftime("%I:%M:%S %p", localtime())
@@ -71,7 +71,8 @@ def time_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         # CHECK AND UPDATE TIME EVERY 1 SECOND
         while True:
             if not is_time_view:
-                page.clean() # IMPORTINT BEFOR ANY GO       
+                page.clean() # IMPORTINT BEFOR ANY GO    
+                page.update() # DO NOT TYR TO REMOVE THIS IT WILL DROP A ' BIG BUG '
                 break
             else:
                 if realtime_label in view.controls:
@@ -130,7 +131,7 @@ def time_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
                     time_row(time=times['end_night'], lable='نهاية الليل'),
                 ]
                 back_btn.disabled = False
-                page.update()
+                view.update()
                 # run real time in other thread # THIS MORE FASTER
                 show_realtime_thread = Thread(target=show_realtime)
                 show_realtime_thread.start()

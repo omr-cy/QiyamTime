@@ -7,10 +7,10 @@ from datetime import datetime, timedelta
 
 BASE_DIR = Path(__file__).resolve().parent
 
-year = datetime.now().strftime("%Y")
-month = datetime.now().strftime("%m")
-today = datetime.now().strftime("%d %b %Y")
-tomorrow = datetime.now() + timedelta(days=1)
+now = datetime.now()
+today = now.strftime("%d %b %Y")
+tomorrow = now + timedelta(days=1)
+current_date = now.strftime('%m-%Y').split('-')
 
 def get_prayer_times():
     try:
@@ -19,13 +19,13 @@ def get_prayer_times():
         city = ip_location.city
 
         # جلب أوقات الصلاة باستخدام الإحداثيات
-        url = f"https://api.aladhan.com/v1/calendar?latitude={lat}&longitude={lng}&month={month}&year={year}&method=4"
+        url = f"https://api.aladhan.com/v1/calendar?latitude={lat}&longitude={lng}&month={current_date[0]}&year={current_date[1]}&method=4"
         prayer_data = requests.get(url).json()
         prayer_data['city'] = city  # add city name
 
-        with open(f"{BASE_DIR}/storage/data/prayer_data({month}-{year}).json", "w", encoding="utf-8") as json_file:
+        with open(f"{BASE_DIR}/storage/data/prayer_data({current_date[0]}-{current_date[1]}).json", "w", encoding="utf-8") as json_file:
             json.dump(prayer_data, json_file, ensure_ascii=False, indent=4)
-        print(f"Saved as prayer_data({month}-{year}).json") 
+        print(f"Saved as prayer_data({current_date[0]}-{current_date[1]}).json") 
 
     except Exception as err:
         print(err)
@@ -84,16 +84,16 @@ def qyam_times(start, end):
         'الفجر': 'Fajr'
     }
 
-    # thread = Thread(target=get_prayer_times)
+    # thread = Thread(target=get_prayer_times) # TODO
     # thread.start() #  وضعتها في ثريد علشان متأثرش على باقي التطبيق 
    
     if start in auto_times and end in auto_times: # لو سيتم حساب الوقت تلقائي
         start_time = auto_times[start]
         end_time = auto_times[end]
         
-        if Path(f"{BASE_DIR}/storage/data/prayer_data({month}-{year}).json").exists():
+        if Path(f"{BASE_DIR}/storage/data/prayer_data({current_date[0]}-{current_date[1]}).json").exists():
             # IF PRAYER DATA EXISTS WILL GET THE DATA FROM IT
-            with open(f"{BASE_DIR}/storage/data/prayer_data({month}-{year}).json", "r", encoding="utf-8") as json_file:
+            with open(f"{BASE_DIR}/storage/data/prayer_data({current_date[0]}-{current_date[1]}).json", "r", encoding="utf-8") as json_file:
                 prayer_data = json.load(json_file)
                 
                 return qyam_calc(
@@ -109,7 +109,7 @@ def qyam_times(start, end):
             try:
                 get_prayer_times()
 
-                with open(f"{BASE_DIR}/storage/data/prayer_data({month}-{year}).json", "r", encoding="utf-8") as json_file:
+                with open(f"{BASE_DIR}/storage/data/prayer_data({current_date[0]}-{current_date[1]}).json", "r", encoding="utf-8") as json_file:
                     prayer_data = json.load(json_file)
                     return qyam_calc(
                         *fetch_night_times(
@@ -137,7 +137,7 @@ def qyam_times(start, end):
 
 
 # TIST APP
-# qyam_times("المغرب", "الشروق")
+# print(qyam_times("المغرب", "الشروق"))
 # qyam_times("العشاء", "fajr")
 # qyam_times("sunset", "sunrise")
 # qyam_times("isha", "sunrise")

@@ -186,9 +186,11 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         # CLOSEING THE RECENT CONTROLS TO HANDLE THE ERROES 
         paker_dlg.open = False
         time_picker.open = False
+        page.update()
 
         # SAVEING LOG HISTORY
         save_log()
+
         # SEND THE VALUSE WITH ## BASKET WAY ##
         basket.start_night = start_dd.value
         basket.end_night = end_dd.value

@@ -4,8 +4,8 @@
         "end_night": ""
     },
     "auto_time": {
-        "start_night": "المغرب",
-        "end_night": "الفجر"
+        "start_night": "العشاء",
+        "end_night": "الشروق"
     },
     "manual_time": {
         "start_night": "00:00",
