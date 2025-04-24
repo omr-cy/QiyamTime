@@ -1,5 +1,5 @@
 [project]
-name = "qyam_time" # MUST BE AN ASCI LATTERS AND EN
+name = "QiyamTime" # MUST BE AN ASCI LATTERS AND EN
 version = "1.0"
 
 description = "تطبيق لتنظيم وقت قيام الليل تلقائياً أو يدوياً مع عرض بصري. | App to Organize Qiyam time automatically or manually with a visual view."
@@ -10,16 +10,16 @@ dependencies = [
   "flet==0.27.4",
   "flet-route==0.3.3",
   "geocoder==1.38.1",
-  "requests==2.28.1",
+  "httpx[http2]==0.28.1" # "requests==2.28.1",
 ]
 
 authors = [{ name = "Omr Ashrf", email = "omr.ashrf.prog@gamil.com" }]
 
 [tool.flet]
-product = "qyam_time"
+product = "Qiyam Time"
 copyright = "Copyright (C) 2025 by omrAshrf"
 org = "nf.free.omrashrf"
-company = "nf.free.omrashrf.qyamtime" # MUST BE LIKE "com.mycompany.qyamtime"
+company = "nf.free.omrashrf.QiyamTime" # MUST BE LIKE "com.mycompany.qyamtime"
 
 # assets = ["src/assets"]
 app.module = "main" #--module-name
@@ -34,10 +34,19 @@ split_per_abi = true
 [tool.flet.app.boot_screen]
 show = true
 message = "تحضير التطبيق لإطلاقه الأول…"
+# color = "#002643" # NOT WORKING
 
 [tool.flet.app.startup_screen]
 show = true
 message = "بدء تشغيل التطبيق… (لا تنسونا من صالح دعائكم)"
+# color = "#002643" # # NOT WORKING
+
+[tool.flet.splash]
+web =  true # --web-splash
+ios = true # --ios-splash
+android = true # --android-splash
+color = "#002643" # --splash-color
+dark_color = "#002643" # --dark-splash-color
 
 # IF YOU HAVE ANY ERROR WITH BULID TRY -> flet build apk --verbose
 

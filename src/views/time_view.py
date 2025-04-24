@@ -11,7 +11,7 @@ from app import qyam_times
 import json
 
 def time_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
-
+    
     try:
         # THE OPEN FILES WAY
         with open(f'{BASE_DIR.parent}/storage/logs/user_selections.json', 'r', encoding="utf-8") as jf:
@@ -115,29 +115,31 @@ def time_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         )
         
     def build():
-        sleep(.5)
-        while result_queue.empty() == False: # THIS IMPORTINT CUSE ITS GETINNG THE RESUILTS FROM APP 
+        sleep(.2)
+        while True: 
             # page.clear() # DO NOT USE NEVER THIS WILL SHOW A BUG BETWEN PAGES
-            if is_time_view == True:
-                view.controls.remove(loading_progress)
-                times = result_queue.get()
-                view.controls = [
-                    ft.Text(value=times['city'], size=17, text_align='center'),
-                    realtime_label,
-                    time_row(time=times['start_night'], lable='بداية الليل'),
-                    time_row(time=times['midnight'], lable='منتصف الليل'),
-                    time_row(time=times['start_off_last_third'], lable='الثلث الآخر'),
-                    time_row(time=times['start_off_last_sixth'], lable='السدس الآخر'),
-                    time_row(time=times['end_night'], lable='نهاية الليل'),
-                ]
-                back_btn.disabled = False
-                view.update()
-                # run real time in other thread # THIS MORE FASTER
-                show_realtime_thread = Thread(target=show_realtime)
-                show_realtime_thread.start()
-                break
-            else:
-                break
+            if result_queue.empty() == False: # THIS IMPORTINT CUSE ITS GETINNG THE RESUILTS FROM APP
+                if is_time_view == True:
+                    page.update() # I THINK IT FIXED A BUG
+                    view.controls.remove(loading_progress)
+                    times = result_queue.get()
+                    view.controls = [
+                        ft.Text(value=times['city'], size=17, text_align='center'),
+                        realtime_label,
+                        time_row(time=times['start_night'], lable='بداية الليل'),
+                        time_row(time=times['midnight'], lable='منتصف الليل'),
+                        time_row(time=times['start_off_last_third'], lable='الثلث الآخر'),
+                        time_row(time=times['start_off_last_sixth'], lable='السدس الآخر'),
+                        time_row(time=times['end_night'], lable='نهاية الليل'),
+                    ]
+                    back_btn.disabled = False
+                    page.update()
+                    # run real time in other thread # THIS MORE FASTER
+                    show_realtime_thread = Thread(target=show_realtime)
+                    show_realtime_thread.start()
+                    break
+                else:
+                    break
     
     def back_view(e: ft.ControlEvent):
         global is_time_view
@@ -156,8 +158,6 @@ def time_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
     get_times_thread.start()
     bulid_thread = Thread(target=build)
     bulid_thread.start()
-    
-
     
     ### ADD CONTROLS TO VIEW ###
     view.controls.append(

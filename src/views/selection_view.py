@@ -159,21 +159,20 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
             confirm_btn.disabled = True
         else:
             confirm_btn.disabled = False
-
         page.update()
 
-    def save_log(): # SAVE LOG HISTORY
-        with open(f'{BASE_DIR.parent}/storage/logs/user_selections.json', 'r', encoding="utf-8") as jf:
-            user_selections = json.load(jf)
+    def save_log(all=False): # SAVE LOG HISTORY
+        if all:
+            with open(f'{BASE_DIR.parent}/storage/logs/user_selections.json', 'r', encoding="utf-8") as jf:
+                user_selections = json.load(jf)
 
-        with open(f'{BASE_DIR.parent}/storage/logs/user_selections.json', 'w', encoding="utf-8") as jf:
-            user_selections["last_selected_time"] = {'start_night': start_dd.value, 'end_night': end_dd.value}
-            json.dump(user_selections, jf, ensure_ascii=False, indent=4)
+            with open(f'{BASE_DIR.parent}/storage/logs/user_selections.json', 'w', encoding="utf-8") as jf:
+                user_selections["last_selected_time"] = {'start_night': start_dd.value, 'end_night': end_dd.value}
+                json.dump(user_selections, jf, ensure_ascii=False, indent=4)
 
         with open(f'{BASE_DIR.parent}/storage/logs/log_history.json', 'w', encoding="utf-8") as jf:
             json.dump({'last_log': '/time_view'}, jf, ensure_ascii=False, indent=4)
         
-
     def check_logs():
         with open(f'{BASE_DIR.parent}/storage/logs/log_history.json', 'r', encoding="utf-8") as jf:
             log_history = json.load(jf)
@@ -189,7 +188,7 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         page.update()
 
         # SAVEING LOG HISTORY
-        save_log()
+        save_log(all=True)
 
         # SEND THE VALUSE WITH ## BASKET WAY ##
         basket.start_night = start_dd.value
@@ -277,6 +276,7 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
 
         start_dd.on_change = save_time_from(start_dd, tmode=tmode, tname='start_night')
         end_dd.on_change = save_time_from(end_dd, tmode=tmode, tname='end_night')
+        page.update()
 
         paker_dlg.content = ft.Column(
             # expand=True, # Need more learn to edit
@@ -312,7 +312,7 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         )
         view.controls.append(paker_dlg)
         paker_dlg.open = True
-        page.update() # NOT NEEDED CUSE THE VALIDATE WILL DO IT 
+        # page.update() # NOT NEEDED CUSE THE VALIDATE WILL DO IT 
         validate_confirm_btn('e')
 
 
@@ -321,7 +321,7 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
     maniual_btn.on_click = lambda _: open_dlg_paker(tmode='manual_time')
     confirm_btn.on_click = push_to_time_view
     back_btn.disabled = check_logs()
-    back_btn.on_click = lambda e: page.go(f"/time_view")
+    back_btn.on_click = lambda e: (save_log(), page.go(f"/time_view"))
 
 
     ### ADD CONTROLS TO VIEW ###

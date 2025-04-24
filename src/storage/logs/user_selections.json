@@ -1,11 +1,11 @@
 {
     "last_selected_time": {
-        "start_night": "",
-        "end_night": ""
+        "start_night": "المغرب",
+        "end_night": "الفجر"
     },
     "auto_time": {
-        "start_night": "العشاء",
-        "end_night": "الشروق"
+        "start_night": "المغرب",
+        "end_night": "الفجر"
     },
     "manual_time": {
         "start_night": "00:00",

@@ -1,7 +1,8 @@
 import json
-import requests
+# import requests
 from geocoder import ip
 from pathlib import Path
+from httpx import Client # USE HTTPX FOR MORE FASTER AND WITH TIME OUT
 from threading import Thread
 from datetime import datetime, timedelta
 
@@ -12,6 +13,13 @@ today = now.strftime("%d %b %Y")
 tomorrow = now + timedelta(days=1)
 current_date = now.strftime('%m-%Y').split('-')
 
+client = Client(
+    timeout=1, 
+    http2=True, 
+    follow_redirects=True,
+    headers={"Accept-Language": "en-US,en;q=0.9,lt;q=0.8,et;q=0.7,de;q=0.6"},
+    )
+
 def get_prayer_times():
     try:
         ip_location = ip('me')
@@ -20,7 +28,7 @@ def get_prayer_times():
 
         # جلب أوقات الصلاة باستخدام الإحداثيات
         url = f"https://api.aladhan.com/v1/calendar?latitude={lat}&longitude={lng}&month={current_date[0]}&year={current_date[1]}&method=4"
-        prayer_data = requests.get(url).json()
+        prayer_data = client.get(url).json()
         prayer_data['city'] = city  # add city name
 
         with open(f"{BASE_DIR}/storage/data/prayer_data({current_date[0]}-{current_date[1]}).json", "w", encoding="utf-8") as json_file:
