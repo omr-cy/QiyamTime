@@ -13,13 +13,12 @@ dependencies = [
   "httpx[http2]==0.28.1" # "requests==2.28.1",
 ]
 
-authors = [{ name = "Omr Ashrf", email = "omr.ashrf.prog@gamil.com" }]
+authors = [{ name = "Omr Ashrf", email = "omr.cyber@gamil.com" }]
 
 [tool.flet]
 product = "Qiyam Time"
 copyright = "Copyright (C) 2025 by omrAshrf"
-org = "nf.free.omrashrf"
-company = "nf.free.omrashrf.QiyamTime" # MUST BE LIKE "com.mycompany.qyamtime"
+company = "com.omr.QiyamTime" # MUST BE LIKE "com.mycompany.qyamtime"
 
 # assets = ["src/assets"]
 app.module = "main" #--module-name

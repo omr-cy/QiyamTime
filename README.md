@@ -44,3 +44,8 @@
 
 ### شكل العرض
 ![Time View](uiux/screenshots/time_view.jpg)
+
+---
+
+
+## معلومات بناء التطبيق هي التي في موقع Flet الرسمي
