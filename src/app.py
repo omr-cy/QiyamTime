@@ -42,10 +42,10 @@ def fetch_night_times(prayer_data, start_time="Isha", end_time="Fajr"):
     city = prayer_data["city"]
     for day in prayer_data["data"]:
         if day['date']['readable'] == today:
-            today_night_end_time = day['timings'][end_time].strip("(EET)")
-            night_start_time = day['timings'][start_time].strip("(EET)")
+            today_night_end_time = day['timings'][end_time][:5] # ITS CHANGED EVRY TIME BUG -> .strip("(EET)")
+            night_start_time = day['timings'][start_time][:5] # .strip("(EET)")
         elif day['date']['readable'] == tomorrow:      
-            tomorrow_night_end_time = day['timings'][end_time].strip("(EET)")
+            tomorrow_night_end_time = day['timings'][end_time][:5] # .strip("(EET)")
              
     try:
         return (night_start_time.strip(), tomorrow_night_end_time.strip(), city)
@@ -92,8 +92,8 @@ def qyam_times(start, end):
         'الفجر': 'Fajr'
     }
 
-    # thread = Thread(target=get_prayer_times) # TODO
-    # thread.start() #  وضعتها في ثريد علشان متأثرش على باقي التطبيق 
+    thread = Thread(target=get_prayer_times) # TODO
+    thread.start() #  وضعتها في ثريد علشان متأثرش على باقي التطبيق 
    
     if start in auto_times and end in auto_times: # لو سيتم حساب الوقت تلقائي
         start_time = auto_times[start]

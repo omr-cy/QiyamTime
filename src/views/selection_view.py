@@ -183,6 +183,7 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
 
     def push_to_time_view(e: ft.ControlEvent):
         # CLOSEING THE RECENT CONTROLS TO HANDLE THE ERROES 
+        page.clean()
         paker_dlg.open = False
         time_picker.open = False
         page.update()
