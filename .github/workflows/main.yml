@@ -26,7 +26,7 @@ jobs:
 
       - name: Build APK
         run: |
-          flet build apk --project qiyam-time --name "Qiyam Time" --company "YourCompany" --product-name "Qiyam Time" --build-number 1 --build-version 1.0.0 --description "An app to help users organize their night prayers."
+          flet build apk --project qiyam-time --build-number 1 --build-version 1.0.0
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
