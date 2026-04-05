@@ -6,7 +6,8 @@ Privacy Policy – "Qiyam Time" App
 تطبيق "وقت القيام" يحترم خصوصيتك ويهدف إلى تقديم تجربة آمنة وبسيطة.
 
 البيانات التي يتم جمعها:
-- لا يتم جمع أو تخزين أي بيانات شخصية.
+- لا يتم جمع أو تخزين أي بيانات شخصية يمكن أن تحدد هويتك.
+- يتم تخزين بعض الإعدادات واختيارات المستخدم (مثل الوضع المختار) محليًا على الجهاز لتحسين تجربة الاستخدام. لا يتم مشاركة هذه البيانات إطلاقًا.
 - يتم استخدام الإنترنت فقط لتحديد الموقع الجغرافي لحساب أوقات قيام الليل.
 
 الموقع الجغرافي:
@@ -53,7 +54,8 @@ English:
 "Qiyam Time" app respects your privacy and aims to provide a simple and secure experience.
 
 Data Collection:
-- No personal data is collected or stored.
+- No personally identifiable data is collected or stored.
+- Some settings and user selections (such as the selected mode) are stored locally on the device to improve the user experience. This data is never shared.
 - Internet is used solely to determine the user's location for accurate prayer time calculations.
 
 Location:

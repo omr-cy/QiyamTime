@@ -1,152 +1,125 @@
+
 import json
-# import requests
 from geocoder import ip
 from pathlib import Path
-from httpx import Client # USE HTTPX FOR MORE FASTER AND WITH TIME OUT
-from threading import Thread
+from httpx import Client
 from datetime import datetime, timedelta
 
 BASE_DIR = Path(__file__).resolve().parent
 
-now = datetime.now()
-today = now.strftime("%d %b %Y")
-tomorrow = now + timedelta(days=1)
-current_date = now.strftime('%m-%Y').split('-')
-
+# HTTP client setup
 client = Client(
-    timeout=1, 
-    http2=True, 
+    timeout=5,  # Increased timeout for reliability
+    http2=True,
     follow_redirects=True,
-    headers={"Accept-Language": "en-US,en;q=0.9,lt;q=0.8,et;q=0.7,de;q=0.6"},
-    )
+    headers={"Accept-Language": "en-US,en;q=0.9"},
+)
 
-def get_prayer_times():
+def get_timings_from_api(lat, lng, date_str):
+    """Fetches prayer timings for a specific date from the Al-Adhan API."""
+    url = f"https://api.aladhan.com/v1/timings/{date_str}?latitude={lat}&longitude={lng}&method=4"
     try:
-        ip_location = ip('me')
-        lat, lng = ip_location.latlng
-        city = ip_location.city
+        response = client.get(url)
+        response.raise_for_status()  # Raise an exception for bad status codes (4xx or 5xx)
+        return response.json()["data"]["timings"]
+    except Exception as e:
+        print(f"API request failed for date {date_str}: {e}")
+        return None
 
-        # جلب أوقات الصلاة باستخدام الإحداثيات
-        url = f"https://api.aladhan.com/v1/calendar?latitude={lat}&longitude={lng}&month={current_date[0]}&year={current_date[1]}&method=4"
-        prayer_data = client.get(url).json()
-        prayer_data['city'] = city  # add city name
-
-        with open(f"{BASE_DIR}/storage/data/prayer_data({current_date[0]}-{current_date[1]}).json", "w", encoding="utf-8") as json_file:
-            json.dump(prayer_data, json_file, ensure_ascii=False, indent=4)
-        print(f"Saved as prayer_data({current_date[0]}-{current_date[1]}).json") 
-
-    except Exception as err:
-        print(err)
-
-def fetch_night_times(prayer_data, start_time="Isha", end_time="Fajr"):
-    city = prayer_data["city"]
-    for day in prayer_data["data"]:
-        if day['date']['readable'] == today:
-            today_night_end_time = day['timings'][end_time][:5] # ITS CHANGED EVRY TIME BUG -> .strip("(EET)")
-            night_start_time = day['timings'][start_time][:5] # .strip("(EET)")
-        elif day['date']['readable'] == tomorrow:      
-            tomorrow_night_end_time = day['timings'][end_time][:5] # .strip("(EET)")
-             
-    try:
-        return (night_start_time.strip(), tomorrow_night_end_time.strip(), city)
-    except:
-        return (night_start_time.strip(), today_night_end_time.strip(), city)
-    
 def conv_time_12h(time_str):
+    """Converts 24-hour time string to 12-hour format."""
+    if not isinstance(time_str, str):
+        # If it's already a time object, format it
+        return time_str.strftime("%I:%M %p")
+    
+    # Handle time strings like "HH:MM" or "HH:MM:SS"
     for fmt in ('%H:%M', '%H:%M:%S'):
         try:
-            time_obj = datetime.strptime(str(time_str), fmt)
+            time_obj = datetime.strptime(time_str, fmt)
             return time_obj.strftime("%I:%M %p")
         except ValueError:
             continue
-    return f"Time Format Erro -> {time_str}"
+    return f"Time Format Error -> {time_str}"
 
 def qyam_calc(start_night, end_night, city='--------'):
+    """Calculates the night periods based on start and end times."""
+    # Ensure times are in 24-hour format for calculation
     start_night_dt = datetime.strptime(start_night, "%H:%M")
-    end_night_dt = datetime.strptime(end_night, "%H:%M") + timedelta(days=1)  # إضافة يوم للشروق
+    end_night_dt = datetime.strptime(end_night, "%H:%M")
+
+    # If end night is earlier than start night, it means it's on the next day
+    if end_night_dt <= start_night_dt:
+        end_night_dt += timedelta(days=1)
 
     duration = end_night_dt - start_night_dt
     sixth = duration / 6
     midnight = (start_night_dt + duration / 2).time()
     last_third = (start_night_dt + (sixth * 4)).time()
-    # importent note "السدسي الرابع والخامس يبدأنان من منتصف الليل وينتهيان في اول السدس الأخير " 
-    six_sixth = (start_night_dt + (sixth * 5)).time()
+    last_sixth = (start_night_dt + (sixth * 5)).time()
     
-    calculation =  {
+    calculation = {
         'city': city,
         "allnight": str(duration),
-        "start_night": conv_time_12h(start_night),    
+        "start_night": conv_time_12h(start_night),
         "midnight": conv_time_12h(midnight),
-        "start_off_last_third": conv_time_12h(last_third),  
-        "start_off_last_sixth": conv_time_12h(six_sixth),
+        "start_off_last_third": conv_time_12h(last_third),
+        "start_off_last_sixth": conv_time_12h(last_sixth),
         "end_night": conv_time_12h(end_night)
     }
     return calculation
-    
-    
+
 def qyam_times(start, end):
-    auto_times = {
-        'المغرب':'Sunset', 
-        'العشاء' : 'Isha', 
-        'الشروق':'Sunrise',  
+    """
+    Main function to get Qiyam times. It handles both automatic (based on prayer names)
+    and manual (based on user-provided times) calculations.
+    """
+    # Mapping for automatic time calculation
+    auto_times_map = {
+        'المغرب': 'Sunset',
+        'العشاء': 'Isha',
+        'الشروق': 'Sunrise',
         'الفجر': 'Fajr'
     }
 
-    thread = Thread(target=get_prayer_times) # TODO
-    thread.start() #  وضعتها في ثريد علشان متأثرش على باقي التطبيق 
-   
-    if start in auto_times and end in auto_times: # لو سيتم حساب الوقت تلقائي
-        start_time = auto_times[start]
-        end_time = auto_times[end]
-        
-        if Path(f"{BASE_DIR}/storage/data/prayer_data({current_date[0]}-{current_date[1]}).json").exists():
-            # IF PRAYER DATA EXISTS WILL GET THE DATA FROM IT
-            with open(f"{BASE_DIR}/storage/data/prayer_data({current_date[0]}-{current_date[1]}).json", "r", encoding="utf-8") as json_file:
-                prayer_data = json.load(json_file)
-                
-                return qyam_calc(
-                    *fetch_night_times(
-                        prayer_data,
-                        start_time=start_time,
-                        end_time=end_time
-                    )
-                )
-                
-        else:
-            # IF PRAYER DATA IS NOT EXISTS WILL RUN get_prayer_times TO GET THE DATA
-            try:
-                get_prayer_times()
-
-                with open(f"{BASE_DIR}/storage/data/prayer_data({current_date[0]}-{current_date[1]}).json", "r", encoding="utf-8") as json_file:
-                    prayer_data = json.load(json_file)
-                    return qyam_calc(
-                        *fetch_night_times(
-                            prayer_data,
-                            start_time=start_time,
-                            end_time=end_time
-                        )
-                    )
-
-            except Exception as err:
-                print (err)
-                return {
-                    'city': "حدثت مشكلة\nلا يجود انترنت أو تحتاج لتحديث موقعك",
-                    "allnight": "00:00:00",
-                    "start_night": "00:00:00",  
-                    "midnight": "00:00:00",  
-                    "start_off_last_third": "00:00:00",  
-                    "start_off_last_sixth": "00:00:00",  
-                    "end_night": "00:00:00",  
-                }
-
-    else: # لو سيتم حساب الوقت يدوي
-        
+    # Handle manual time input
+    if start not in auto_times_map or end not in auto_times_map:
         return qyam_calc(start, end)
 
+    # --- Handle automatic time calculation ---
+    try:
+        # Get location
+        ip_location = ip('me')
+        if not ip_location.latlng:
+             raise ValueError("Could not determine location from IP.")
+        lat, lng = ip_location.latlng
+        city = ip_location.city or "Unknown Location"
 
-# TIST APP
-# print(qyam_times("المغرب", "الشروق"))
-# qyam_times("العشاء", "fajr")
-# qyam_times("sunset", "sunrise")
-# qyam_times("isha", "sunrise")
-# qyam_times("06:18", "4:0")
+        # Get dates
+        today = datetime.now()
+        tomorrow = today + timedelta(days=1)
+        
+        # Get timings from API
+        today_timings = get_timings_from_api(lat, lng, today.strftime('%d-%m-%Y'))
+        tomorrow_timings = get_timings_from_api(lat, lng, tomorrow.strftime('%d-%m-%Y'))
+
+        if not today_timings or not tomorrow_timings:
+            raise ConnectionError("Failed to fetch prayer times from the API.")
+
+        # Extract start and end times (in HH:MM format)
+        start_time_24h = today_timings[auto_times_map[start]].split(' ')[0]
+        end_time_24h = tomorrow_timings[auto_times_map[end]].split(' ')[0]
+        
+        # Perform calculation
+        return qyam_calc(start_time_24h, end_time_24h, city=city)
+
+    except Exception as err:
+        print(f"An error occurred in qyam_times: {err}")
+        return {
+            'city': "Problem occurred\nNo internet or location update needed",
+            "allnight": "00:00:00",
+            "start_night": "00:00:00",
+            "midnight": "00:00:00",
+            "start_off_last_third": "00:00:00",
+            "start_off_last_sixth": "00:00:00",
+            "end_night": "00:00:00",
+        }
