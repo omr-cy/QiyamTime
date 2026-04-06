@@ -1,6 +1,6 @@
 import flet as ft
 from flet_route import Routing, path, Params, Basket
-from views import selection_view ,time_view
+from views import selection_view ,time_view, hadith_view
 from pathlib import Path
 import json
 
@@ -21,6 +21,7 @@ def main(page: ft.Page) -> None:
     app_routes = [
         path(url='/', clear=True, view=selection_view),
         path(url='/time_view', clear=True, view=time_view),
+        path(url='/hadith_view', clear=True, view=hadith_view),
     ]
 
     Routing(page=page, app_routes=app_routes)

@@ -2,9 +2,11 @@ import flet as ft
 from flet_route import Params, Basket
 from sys import path as syspath
 from pathlib import Path
-from threading import Thread # , Event
+from threading import Thread
 from queue import Queue
-from time import sleep, strftime, localtime
+from time import sleep, strftime, localtime, mktime, time
+from plyer import notification
+
 BASE_DIR = Path(__file__).resolve().parent
 syspath.append(str(BASE_DIR.parent))
 from app import qyam_times
@@ -13,13 +15,11 @@ import json
 def time_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
     
     try:
-        # THE OPEN FILES WAY
         with open(f'{BASE_DIR.parent}/storage/logs/user_selections.json', 'r', encoding="utf-8") as jf:
             user_selections = json.load(jf)
             start_night = user_selections["last_selected_time"]["start_night"]
             end_night = user_selections["last_selected_time"]["end_night"]
     except:
-        # THE BASKET WAY
         start_night = basket.start_night
         end_night = basket.end_night
 
@@ -31,7 +31,7 @@ def time_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         '/time_view',
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         vertical_alignment=ft.MainAxisAlignment.CENTER,
-        bgcolor = ft.Colors.TRANSPARENT,
+        bgcolor=ft.Colors.TRANSPARENT,
         padding=50,
         spacing=15,
         decoration = ft.BoxDecoration(
@@ -42,7 +42,6 @@ def time_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         )
     )
 
-    ### SETUP CONTROLS ###
     loading_progress:ft.ProgressBar = ft.ProgressBar(
         width=300,
         color=ft.Colors.BLUE_ACCENT_400, 
@@ -58,28 +57,24 @@ def time_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         icon=ft.Icons.ARROW_BACK,
         rotate=ft.Rotate(angle=3.14),
         disabled=True,
-        # on_click=lambda _: page.go('/'),
-        # width=15
     )
 
-    ### SETUP THE EVENTS AND FUNCTIONS ###
     def get_times():
         times = qyam_times(start=start_night, end=end_night)
         result_queue.put(times)
 
     def show_realtime():
-        # CHECK AND UPDATE TIME EVERY 1 SECOND
         while True:
             if not is_time_view:
-                page.clean() # IMPORTINT BEFOR ANY GO    
-                page.update() # DO NOT TYR TO REMOVE THIS IT WILL DROP A ' BIG BUG '
+                page.clean()
+                page.update()
                 break
             else:
                 if realtime_label in view.controls:
-                    try:   
+                    try:
                         realtime_label.value = realtime_now()
                         try:
-                            realtime_label.update() # WILL GIVE YOU A BUG IF IT WITHOUT TRY, _IDONT KNOW WAY_
+                            realtime_label.update()
                         except:
                             ...
                         sleep(1)
@@ -87,7 +82,39 @@ def time_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
                         print(f"{err} >> Maybe The View Is Cloused")
                     except Exception as err:
                         print(f"{err}")
+
+    def alarm(time_str, label):
+        def on_click(e):
+            page.snack_bar = ft.SnackBar(ft.Text(f"تم ضبط المنبه لـ {label}"), open=True)
+            page.update()
+
+            def run_alarm():
+                # Convert time string to seconds since epoch
+                alarm_time = mktime(localtime())
+                h, m = map(int, time_str.split(':'))
+                now = localtime()
+                alarm_time_struct = (now.tm_year, now.tm_mon, now.tm_mday, h, m, 0, now.tm_wday, now.tm_yday, now.tm_isdst)
+                alarm_time_seconds = mktime(alarm_time_struct)
+
+                # If alarm time is in the past, set it for the next day
+                if alarm_time_seconds < time():
+                    alarm_time_seconds += 24 * 60 * 60
+
+                # Wait until the alarm time
+                sleep(alarm_time_seconds - time())
+
+                # Show notification
+                notification.notify(
+                    title="وقت القيام",
+                    message=f"حان الآن وقت {label}",
+                    app_name="Qiyam Time",
+                    timeout=30,
+                )
             
+            thread = Thread(target=run_alarm)
+            thread.start()
+
+        return on_click
 
     def time_row(time, lable):
         return ft.Row(
@@ -102,8 +129,7 @@ def time_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
                 ),
                 ft.Column(
                     alignment='center',
-                    controls=[ft.IconButton(icon=ft.Icons.ALARM,),]  
-                    # controls=[ft.IconButton(icon=ft.Icons.ALARM_ADD,),]  # TODO
+                    controls=[ft.IconButton(icon=ft.Icons.ALARM_ADD, on_click=alarm(time, lable))]
                 ),
                 ft.Column(
                     rtl=True,
@@ -116,11 +142,10 @@ def time_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         
     def build():
         sleep(.2)
-        while True: 
-            # page.clear() # DO NOT USE NEVER THIS WILL SHOW A BUG BETWEN PAGES
-            if result_queue.empty() == False: # THIS IMPORTINT CUSE ITS GETINNG THE RESUILTS FROM APP
-                if is_time_view == True:
-                    page.update() # I THINK IT FIXED A BUG
+        while True:
+            if not result_queue.empty():
+                if is_time_view:
+                    page.update()
                     view.controls.remove(loading_progress)
                     times = result_queue.get()
                     view.controls = [
@@ -134,7 +159,6 @@ def time_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
                     ]
                     back_btn.disabled = False
                     page.update()
-                    # run real time in other thread # THIS MORE FASTER
                     show_realtime_thread = Thread(target=show_realtime)
                     show_realtime_thread.start()
                     break
@@ -152,14 +176,12 @@ def time_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         save_log()
         page.go('/')
 
-    ### CONNECT CONTROLS WITH EVENTS AND ACTIVEATE FUNCTIONS ###
     back_btn.on_click = back_view
     get_times_thread = Thread(target=get_times)
     get_times_thread.start()
     bulid_thread = Thread(target=build)
     bulid_thread.start()
     
-    ### ADD CONTROLS TO VIEW ###
     view.controls.append(
         loading_progress
     )
@@ -172,17 +194,6 @@ def time_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
             controls=[back_btn]
         ),
     )
-    page.update() 
-    # view.update() # DO NOT USE THIS IT WILL GIVE YOU BUG "AssertionError"
+    page.update()
 
-    ### RETURN VIEW TO PAGE ###
     return view
-
-
-# TIST TIME_VIEW PAGE
-# def main(page: ft.Page):
-#     page.title = "Test View"
-#     v = time_view(page, Params({}), Basket())
-#     page.views.append(v)
-#     page.go(v.route)
-# ft.app(target=main)

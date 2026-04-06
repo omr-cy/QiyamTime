@@ -3,7 +3,6 @@ from flet_route import Params, Basket
 from pathlib import Path
 import json
 from threading import Thread
-# from time import sleep
 
 BASE_DIR = Path(__file__).resolve().parent
 
@@ -21,7 +20,6 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         )
     )
     
-    ### SETUP CONTROLS | تهيئة عناصر التطبيق ###
     willcome_label:ft.Text = ft.Text(
             value='مرحباً بك في تطبيق \nوقت القيام',
             text_align='center',
@@ -29,7 +27,6 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
             size=25
         )
     auto_btn:ft.FilledTonalButton = ft.FilledTonalButton(
-        # bgcolor = ft.Colors.with_opacity(color=ft.Colors.WHITE10, opacity=100),
         bgcolor=ft.Colors.WHITE10,
         height = 75,
         style = ft.ButtonStyle(shape=ft.RoundedRectangleBorder(radius=10)),
@@ -75,7 +72,6 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
             ],
         ),
     )
-    # Satrt DropDown
     start_dd = ft.Dropdown( 
         expand=True,
         width=190,
@@ -84,10 +80,7 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         border_radius=15,
         border_width=2,
         disabled=True,
-        # border_color='#182745',
-        # alignment=ft.CrossAxisAlignment.CENTER
     )
-    # End DropDown
     end_dd = ft.Dropdown( 
         expand=True,
         width=190,
@@ -96,8 +89,6 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         border_radius=15,
         border_width=2,
         disabled=True,
-        # border_color='#182745',
-        # alignment=ft.CrossAxisAlignment.CENTER
     )
     time_picker:ft.TimePicker = ft.TimePicker(
         confirm_text="موافق",
@@ -113,17 +104,14 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         disabled=True,
         style=ft.ButtonStyle(
             text_style=ft.TextStyle(
-                color=ft.Colors.INDIGO, # NOT WOARKING _IDONT KNOW WAY_
+                color=ft.Colors.INDIGO,
                 size=15, 
                 weight=ft.FontWeight.BOLD, 
-                # bgcolor=ft.Colors.INDIGO_200, # _UGLY_
             ),
         ),
     )
-    # Main Dialog
     paker_dlg: ft.AlertDialog = ft.AlertDialog(
-        # bgcolor='#1a2f42', # OLD COLOR
-        bgcolor='#EC1A2F42', # NEW COLOR
+        bgcolor='#EC1A2F42',
         actions_alignment='center',
         action_button_padding=30,
         content_padding=10,
@@ -136,7 +124,6 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
                         color=ft.Colors.INDIGO, 
                         size=15, 
                         weight=ft.FontWeight.BOLD, 
-                        # bgcolor=ft.Colors.INDIGO_200, # _UGLY_
                     ),
                 ),
                 on_click=lambda e: (
@@ -151,9 +138,12 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         icon=ft.Icons.ARROW_BACK_ROUNDED,
         disabled=True,
     )
+    hadith_btn: ft.IconButton = ft.IconButton(
+        icon=ft.icons.BOOK_ONLINE_ROUNDED,
+        tooltip="أحاديث قيام الليل",
+        on_click=lambda _: page.go('/hadith_view')
+    )
 
-
-    ### SETUP THE EVENTS ###
     def validate_confirm_btn(e: ft.ControlEvent):
         if start_dd.value == '00:00' or end_dd.value == '00:00':
             confirm_btn.disabled = True
@@ -161,7 +151,7 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
             confirm_btn.disabled = False
         page.update()
 
-    def save_log(all=False): # SAVE LOG HISTORY
+    def save_log(all=False):
         if all:
             with open(f'{BASE_DIR.parent}/storage/logs/user_selections.json', 'r', encoding="utf-8") as jf:
                 user_selections = json.load(jf)
@@ -177,25 +167,21 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         with open(f'{BASE_DIR.parent}/storage/logs/log_history.json', 'r', encoding="utf-8") as jf:
             log_history = json.load(jf)
             if log_history["last_log"] != '':
-                return False # TO DEACTIVATE THE DISABLED
+                return False
             else:
-                return True # TO KEEP THE DISABLED
+                return True
 
     def push_to_time_view(e: ft.ControlEvent):
-        # CLOSEING THE RECENT CONTROLS TO HANDLE THE ERROES 
         page.clean()
         paker_dlg.open = False
         time_picker.open = False
         page.update()
 
-        # SAVEING LOG HISTORY
         save_log(all=True)
 
-        # SEND THE VALUSE WITH ## BASKET WAY ##
         basket.start_night = start_dd.value
         basket.end_night = end_dd.value
 
-        # GOING TO THE TIME VIEW PAGE
         page.go(f"/time_view")
 
     def save_time_from(dropdown: ft.Dropdown, tmode, tname):
@@ -217,14 +203,11 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         def _show_picker(e):
             def on_time_selected(ev):
                 if ev.control.value:
-                    # نحول الوقت لتنسيق "ساعة:دقيقة"
                     selected_time = ev.control.value.strftime("%H:%M")
-                    # نحط الوقت جوه الـ Dropdown
                     dropdown.hint_text = selected_time
                     dropdown.value = selected_time
                     validate_confirm_btn('e')
                     save_time_from(dropdown, tmode, tname)(ev)
-                    # lambda save_time_from(dropdown, tmode, tname)()
 
             time_picker.on_change = on_time_selected
             time_picker.open = True
@@ -232,47 +215,34 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
 
         return _show_picker
 
-    def open_dlg_paker(tmode): # حل حلو اني اعمل فانكشن تهندل نتايج العنصر لو كان هيبقى منه نسخ كتير
+    def open_dlg_paker(tmode):
         with open(f'{BASE_DIR.parent}/storage/logs/user_selections.json', 'r', encoding="utf-8") as jf:
             log_time = json.load(jf)
 
-        if tmode == 'auto_time': # AUTO SELECTING TIME
-            paker_dlg.title = ft.Text('أختر توقيت الليل', text_align='center', rtl=True) # TODO NEED TO PUT THIS TEXT "هئا الأختيار يحتاج الى انترنت في أول مرة وبعدها يحدث مرة كل شهر"
-
-            # TO OPEN THE SELECT OPTION
+        if tmode == 'auto_time':
+            paker_dlg.title = ft.Text('أختر توقيت الليل', text_align='center', rtl=True)
             start_dd.disabled = False  if log_time[tmode]["start_night"] != "00:00" else True
             end_dd.disabled = False if log_time[tmode]["end_night"] != "00:00" else True
-
-            # THE START DORPDOWN OPTIONS
-            start_dd.value = log_time["auto_time"]["start_night"] # GETINNG THE VALUE FROM THE AUTO HISTORY LOGS
+            start_dd.value = log_time["auto_time"]["start_night"]
             start_dd.options = [
                 ft.dropdown.Option("المغرب"),
                 ft.dropdown.Option("العشاء"),
             ]
-            # THE END DORPDOWN OPTIONS
-            end_dd.value = log_time["auto_time"]["end_night"]  # GETINNG THE VALUE FROM THE MANUAL HISTORY LOGS
+            end_dd.value = log_time["auto_time"]["end_night"]
             end_dd.options = [
                 ft.dropdown.Option("الفجر"), 
                 ft.dropdown.Option("الشروق"),
             ]
-            # start_dd.on_change = save_time_from(start_dd, tmode=tmode, tname='start_night')
-            # end_dd.on_change = save_time_from(end_dd, tmode=tmode, tname='end_night')
             
-        elif tmode == 'manual_time': # MANUALY SELECTING TIME
+        elif tmode == 'manual_time':
             paker_dlg.title = ft.Text('أدخل توقيت الليل', text_align='center', rtl=True)
-
-            # TO CLOSE THE SELECT OPTION
-            start_dd.disabled = True # if log_time[tmode]["start_night"] != "00:00" else False
-            end_dd.disabled = True # if log_time[tmode]["end_night"] != "00:00" else False
-
-            # THE START DORPDOWN OPTIONS
+            start_dd.disabled = True
+            end_dd.disabled = True
             start_dd.options = None
-            start_dd.value = log_time["manual_time"]["start_night"] # GETINNG THE VALUE FROM THE AUTO HISTORY LOGS
+            start_dd.value = log_time["manual_time"]["start_night"]
             start_dd.hint_text = log_time["manual_time"]["start_night"]
-
-            # THE END DORPDOWN OPTIONS
             end_dd.options = None
-            end_dd.value = log_time["manual_time"]["end_night"] # GETINNG THE VALUE FROM THE AUTO HISTORY LOGS
+            end_dd.value = log_time["manual_time"]["end_night"]
             end_dd.hint_text = log_time["manual_time"]["end_night"]
 
         start_dd.on_change = save_time_from(start_dd, tmode=tmode, tname='start_night')
@@ -280,7 +250,6 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         page.update()
 
         paker_dlg.content = ft.Column(
-            # expand=True, # Need more learn to edit
             height=200,
             rtl=True,
             scroll=True,
@@ -313,19 +282,14 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         )
         view.controls.append(paker_dlg)
         paker_dlg.open = True
-        # page.update() # NOT NEEDED CUSE THE VALIDATE WILL DO IT 
         validate_confirm_btn('e')
 
-
-    ### CONNECT CONTROLS WITH EVENTS ###
     auto_btn.on_click = lambda _: open_dlg_paker(tmode='auto_time')
     maniual_btn.on_click = lambda _: open_dlg_paker(tmode='manual_time')
     confirm_btn.on_click = push_to_time_view
     back_btn.disabled = check_logs()
     back_btn.on_click = lambda e: (save_log(), page.go(f"/time_view"))
 
-
-    ### ADD CONTROLS TO VIEW ###
     view.controls.append(
         ft.Row(
             controls=[willcome_label],
@@ -345,21 +309,10 @@ def selection_view(page: ft.Page, params: Params, basket: Basket) -> ft.View:
         shape=ft.NotchShape.CIRCULAR,
         height=60,
         content=ft.Row(
-            alignment='center',
-            controls=[back_btn]
+            alignment='spaceEvenly',
+            controls=[back_btn, hadith_btn]
         ),
     )
     page.update()
-    # view.update() # DO NOT USE THIS IT WILL GIVE YOU BUG "AssertionError"
 
-    ### RETURN VIEW TO PAGE ###
     return view
-
-
-# TIST SELECTION_VIEW PAGE
-# def main(page: ft.Page):
-#     page.title = "Test View"
-#     v = selection_view(page, Params({}), Basket())
-#     page.views.append(v)
-#     page.go(v.route)
-# ft.app(target=main)
