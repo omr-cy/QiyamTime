@@ -18,15 +18,20 @@ jobs:
           python-version: '3.11'
 
       - name: Set up Flutter
+        id: flutter-setup
         uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
 
       - name: Install dependencies and Build APK
+        env:
+          FLUTTER_PATH: ${{ steps.flutter-setup.outputs.flutter-path }}
         run: |
+          echo "${FLUTTER_PATH}/bin" >> $GITHUB_PATH
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          echo "--- Verifying Flutter installation ---"
+          echo "--- Verifying Flutter installation (from explicit PATH) ---"
+          which flutter
           flutter --version
           echo "--- Starting Flet build ---"
           flet build apk --verbose
